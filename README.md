@@ -17,7 +17,7 @@ bin/setup
 foreman start
 ````
 
-This project uses environemt variables for configuration. See the `.env` file to see what is available. If you need to override some variable for development and that change is specific to your machine and should not concern other developers, create a `.env.local` file and add the variable there. `.env.local` is gitignored by default.
+This project uses environment variables for configuration. See the `.env` file to see what is available. If you need to override some variable for development and that change is specific to your machine and should not concern other developers, create a `.env.local` file and add the variable there. `.env.local` is gitignored by default.
 
 ## DEPLOYMENT
 
