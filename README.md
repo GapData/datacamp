@@ -60,6 +60,10 @@ This project uses environemt variables for configuration. See the `.env` file to
    automatically if not already. Make sure that the dump name start with
    `datanest_$DB` as the name format is used to extract the database name.
 
+Thinking sphinx server is automatically started (and reindexed) on deploy *if it is not running already*. If you need to change configuration or restart the server, do so manually via the `thinking_sphinx` capistrano tasks. Run `cap -T thinking_sphinx` to see what is available. Note that sphinx will be automatically stoped and started again for things like reindexing or reconfiguration, causing a brief search downtime.
+
+Sphinx indices are rebuilt periodically in a cron job defined in `config/schedule.rb` (causing a search downtime).
+
 ## LICENSE
 (see COPYING file for full license text)
 
