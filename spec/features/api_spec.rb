@@ -67,9 +67,7 @@ describe 'Api' do
 
   context 'user with restricted api level' do
     before(:each) do
-      FactoryGirl.create(:user, api_access_level: Api::RESTRICTED)
-
-      login_as(FactoryGirl.create(:user))
+      login_as(FactoryGirl.create(:user, api_access_level: Api::RESTRICTED))
     end
 
     it 'is not able to download dataset records in csv', use_dump: true do

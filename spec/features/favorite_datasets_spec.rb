@@ -13,18 +13,15 @@ describe 'FavoriteDatasets' do
     it 'is able to mark dataset record as favorite and see his favorite records in his profile', js: true do
       visit dataset_record_path(dataset_id: students, id: record, locale: :en)
 
-      click_link 'Add to favorites'
+      click_link 'add_to_favorites'
 
       fill_in 'note', with: 'my friend'
       click_button 'Submit'
-      page.should have_link 'Remove from favorites'
+      page.should have_link 'remove_from_favourites'
 
-      click_link 'My Account'
-      click_link 'Favorites'
+      click_link 'Favorite'
 
-      within('#favorites') do
-        page_should_have_content_with 'my friend', 'students', record.id.to_s
-      end
+      page_should_have_content_with 'my friend', 'students', record.id.to_s
     end
 
     it 'user is able to remove record from favorites', js: true do
@@ -32,15 +29,12 @@ describe 'FavoriteDatasets' do
 
       visit dataset_record_path(dataset_id: students, id: record, locale: :en)
 
-      click_link 'Remove from favorites'
-      page.should have_link 'Add to favorites'
+      click_link 'remove_from_favourites'
+      page.should have_link 'add_to_favorites'
 
-      click_link 'My Account'
-      click_link 'Favorites'
+      click_link 'Favorite'
 
-      within('#favorites') do
-        page_should_not_have_content_with 'check this one later', 'students'
-      end
+      page_should_not_have_content_with 'check this one later', 'students'
     end
   end
 end

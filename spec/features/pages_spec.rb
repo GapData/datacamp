@@ -2,12 +2,11 @@ require 'spec_helper'
 
 describe 'Pages' do
   it 'user can see a home page with news' do
-    home_page.update_attributes(body: 'hello world!')
-    FactoryGirl.create(:news, title: 'new dataset available', text: 'finance stuffs')
+    FactoryGirl.create(:news, text: 'finance stuffs')
 
     visit root_path(locale: :en)
 
-    page_should_have_content_with 'hello world!', 'new dataset available', 'finance stuffs'
+    page_should_have_content_with 'finance stuffs'
   end
 
   it 'user can see other requested page' do

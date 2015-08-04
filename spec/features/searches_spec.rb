@@ -21,7 +21,9 @@ describe 'Searches', sphinx: true do
     visit root_path(locale: :en)
 
     fill_in 'query_string', with: 'Peter'
-    click_button 'query_submit'
+    within('#searchbox1') do
+      click_button 'Search'
+    end
 
     page_should_have_content_with 'educations', 'Peter'
     page.should_not have_content 'Town at home'
@@ -35,13 +37,14 @@ describe 'Searches', sphinx: true do
   it 'user is able to use advanced search on page', js: true do
     visit root_path(locale: :en)
 
-    click_link 'advanced_search'
+    click_link 'Advanced search'
     select 'students', from: 'search_dataset'
-
     select 'name', from: 'search[predicates][][field]'
     select 'Ends with', from: 'search[predicates][][operator]'
     fill_in 'search[predicates][][value]', with: 'sweeter'
-    click_button 'search_now'
+    within('#searchbox2') do
+      click_button 'Search'
+    end
 
     page.should have_content 'Lukas Sweeter'
     page.should_not have_content 'Peter Black'
@@ -51,7 +54,9 @@ describe 'Searches', sphinx: true do
     visit root_path(locale: :en)
 
     fill_in 'query_string', with: 'Alice'
-    click_button 'query_submit'
+    within('#searchbox1') do
+      click_button 'Search'
+    end
 
     page.should_not have_content 'Alice'
   end

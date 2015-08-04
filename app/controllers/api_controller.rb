@@ -291,28 +291,28 @@ private
       return false
     end
 
-    # if dataset.is_hidden? && !@current_user.has_right?(:view_hidden_datasets)
-    #   error :access_denied, :message => "Insufficient privileges for dataset with id #{dataset_id}"
-    #   return false
-    # end
+    if dataset.is_hidden? && !@current_user.has_right?(:view_hidden_datasets)
+      error :access_denied, :message => "Insufficient privileges for dataset with id #{dataset_id}"
+      return false
+    end
 
-    # #TODO add checking if user can access datasets
-    # unless current_user.api_level > Api::RESTRICTED
-    #   error :access_denied, :message => "Access denied for this account"
-    #   return false
-    # end
+    #TODO add checking if user can access datasets
+    unless current_user.api_level > Api::RESTRICTED
+      error :access_denied, :message => "Access denied for this account"
+      return false
+    end
 
-    # # TODO add checking if dataset can be accessed
-    # unless dataset.api_level > Api::RESTRICTED
-    #   error :access_denied, :message => "Access denied for this dataset"
-    #   return false
-    # end
+    # TODO add checking if dataset can be accessed
+    unless dataset.api_level > Api::RESTRICTED
+      error :access_denied, :message => "Access denied for this dataset"
+      return false
+    end
 
-    # # TODO add checking if dataset is premium
-    # if dataset.api_level > current_user.api_level
-    #   error :access_denied, :message => "Insufficient privileges"
-    #   return false
-    # end
+    # TODO add checking if dataset is premium
+    if dataset.api_level > current_user.api_level
+      error :access_denied, :message => "Insufficient privileges"
+      return false
+    end
 
     return dataset
   end
