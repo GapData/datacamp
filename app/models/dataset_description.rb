@@ -136,11 +136,11 @@ class DatasetDescription < ActiveRecord::Base
   end
 
   def dataset_schema_manager
-    Dataset::SchemaManager.new(Dataset::Naming.table_name(self))
+    Dataset::SchemaManager.new(Dataset::Naming.table_name(self), Dataset.connection)
   end
 
   def create_dataset_table
-    Dataset::TableCreator.new(self, dataset_schema_manager).create
+    Dataset::TableCreator.new(self, dataset_schema_manager, Dataset::SYSTEM_COLUMNS).create
   end
 
   def has_derived_fields?

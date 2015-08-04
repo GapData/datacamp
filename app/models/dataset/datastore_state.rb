@@ -2,7 +2,7 @@ module Dataset
   class DatastoreState
     attr_reader :dataset_description, :schema_manager
 
-    def initialize(dataset_description, system_columns = SYSTEM_COLUMNS)
+    def initialize(dataset_description, system_columns)
       @dataset_description = dataset_description
       @schema_manager = dataset_description.dataset_schema_manager
       @system_columns = system_columns.map(&:name).map(&:to_s)

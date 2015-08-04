@@ -23,7 +23,7 @@ class DatasetInitializationsController < ApplicationController
   private
 
   def load_datasets
-    @unbound_datasets = Dataset::UnboundDatasets.new.all
+    @unbound_datasets = Dataset::UnboundDatasets.new(Dataset::SYSTEM_TABLES, Dataset.connection).all
   end
 
   def init_menu
