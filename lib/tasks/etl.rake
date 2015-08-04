@@ -163,7 +163,7 @@ namespace :etl do
             LEFT JOIN #{staging_schema}.#{regis_table} rsupp ON rsupp.ico = supplier_ico
             WHERE m.etl_loaded_date IS NULL"
 
-    dataset_model = DatasetDescription.find_by_identifier('procurements').dataset_model_class
+    dataset_model = DatasetDescription.find_by_identifier('procurements').dataset_model
 
     last_updated_at = dataset_model.order(:updated_at).last.updated_at
 
