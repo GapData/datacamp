@@ -89,9 +89,8 @@ $(document).ready(function(){
     show_batch_box(true);
   });
   
-  $(".select_all").click(function(e){
-    var count = $("input.record[type=checkbox]:checked").length;
-    if(count>0)
+  $("#select_all_records").click(function(e){
+    if(! $(this).is(":checked"))
     {
       $("input.record[type=checkbox]").attr('checked', false);
     }

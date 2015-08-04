@@ -6,7 +6,7 @@
     %ul.header
       %li.row-header
         %span#select_all.cell.select_all
-          %input.select_all{type: :checkbox}
+          %input{id: 'select_all_records', type: :checkbox}
         %span.cell
         - @field_descriptions.each do |field_description|
           %span.cell{class: field_description.identifier}
