@@ -49,6 +49,7 @@ class SearchesController < ApplicationController
     descriptions = dds.active
     datasets = descriptions.map(&:dataset_model)
     searches = SearchEngine.new.search(datasets, @search)
+    @query_string = @search.query_string
 
     @results = {}
     descriptions.includes([

@@ -168,6 +168,7 @@ class DatasetsController < ApplicationController
     sphinx_search = @dataset_description.build_sphinx_search(search, sphinx_search) # TODO: move to SearchEngine
     sphinx_search[:options].merge!(populate: true, :conditions => { record_status: Dataset::RecordStatus.find(:published)})
     @records = @dataset_class.search(sphinx_search[:query], sphinx_search[:options])
+    @query_string = search.query_string
   end
 
   # Batch update

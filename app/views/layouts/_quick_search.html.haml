@@ -1,7 +1,7 @@
 #searchline-container
   #searchline-simple
     = form_tag quick_searches_path, :class => "search" do
-      = text_field_tag :query_string, '', class: 'search-text', placeholder: t("search.search_placeholder")
+      = text_field_tag :query_string, @query_string, class: 'search-text', placeholder: t("search.search_placeholder")
       = submit_tag t('search.search_action'), class: 'search-button'
 
   %a.info{href: '#', onclick: '$("#searchline-adv-container").hide(); $("#searchline-info-container").toggle(); return false;'}
