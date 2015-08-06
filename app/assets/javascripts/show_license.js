@@ -21,7 +21,7 @@ $(function() {
     }
   });
 
-  $('data-license-dont-show-again').click(function() {
+  $('[data-license-dont-show-again]').click(function() {
     $.cookie('license_accepted', '1', { expires: 365, path: '/' });
   });
 
