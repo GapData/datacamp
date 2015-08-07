@@ -33,12 +33,8 @@
     @_catalog_click()
     @_dataset_detail_data_button_click()
     @_dataset_detail_information_button_click()
-    @_dataset_detail_comments_button_click()
     @_dataset_api_link()
     @_dataset_detail_sort_click()
-    @_new_comment_submitted()
-    @_new_comment_report_submitted()
-    @_dataset_record_comments_button_click()
     @_dataset_record_metadata_button_click()
     @_remove_from_favorites_click()
     @_download_api_click()
@@ -59,8 +55,6 @@
   _advanced_search_field_add: ->
     @push(['_trackEvent', 'vyhladavanie-podrobnejsie-dataset-filter-pridanie', '1']) if @tracking_container()?
 
-  _comment_submitted: ->
-    @push(['_trackPageview', '/goal/komentar-odoslany']) if @tracking_container()?
 
   _catalog_click: ->
     $('.js_catalog_dataset_link').mousedown (e) =>
@@ -77,10 +71,6 @@
     $('.js_dataset_detail_information_button').click (e) =>
       @push(['_trackEvent', 'katalog-udajov-menu-3-tlacidla', 'informacie'])
 
-  _dataset_detail_comments_button_click: ->
-    $('.js_dataset_detail_comments_button').click (e) =>
-      @push(['_trackEvent', 'katalog-udajov-menu-3-tlacidla', 'komentare'])
-
   _dataset_api_link: ->
     $('.js_api_link').mousedown (e) =>
       @push(['_trackPageview', '/goal/stiahnutie-suboru-s-udajmi/'])
@@ -92,25 +82,6 @@
       field = $element.data('tracking-field-id')
       direction = $element.data('tracking-direction')
       @push(['_trackEvent', "katalog-udajov-horne-menu", field, direction])
-
-  _new_comment_submitted: ->
-    $('form#new_comment').submit (e) =>
-      e.preventDefault()
-      @push(['_set', 'hitCallback', -> $('form#new_comment')[0].submit()])
-      if $('#comment_parent_comment_id').val().length > 0
-        @push(['_trackPageview', '/goal/komentar-odpovedat'])
-      else
-        @push(['_trackPageview', '/goal/komentar-odoslany'])
-
-  _new_comment_report_submitted: ->
-    $('form#new_comment_report').submit (e) =>
-      e.preventDefault()
-      @push(['_set', 'hitCallback', -> $('form#new_comment_report')[0].submit()])
-      @push(['_trackPageview', '/goal/komentar-zazalovat'])
-
-  _dataset_record_comments_button_click: ->
-    $('.js_dataset_record_comments_button').click =>
-      @push(['_trackPageview', '/detail-register/komentare']) if $('.js-my-account').length == 0
 
   _dataset_record_metadata_button_click: ->
     $('.js_dataset_record_metadata_button').click =>

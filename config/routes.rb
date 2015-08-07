@@ -30,7 +30,6 @@ Datacamp::Application.routes.draw do
           put :restore
         end
       end
-      resources :comments, only: [:index, :edit, :update, :destroy]
       resources :system_variables, only: :index do
         put :update_all, on: :collection
       end
@@ -42,13 +41,6 @@ Datacamp::Application.routes.draw do
     # Settings frontend
     resources :pages, except: [:index] do
       resources :blocks
-    end
-
-    resources :comments, only: [:new, :create] do
-      member do
-        get :rate, :report
-        post :report
-      end
     end
 
     resources :news, only: [:index, :show]

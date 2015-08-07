@@ -27,30 +27,6 @@ sk:
     last_update: Posledná úprava
     edit: Úprava kategórie
     destroy: Zmazať
-  comments:
-    created_notice: 'Komentár vytvorený.'
-    created_error_notice: 'Nastala chyba pri vytváraní komentáru. Skúste prosim znova. Ak tento problém pretrváva, kontaktujte administrátora.'
-    neutral: Neutral
-    new: "Nový komentár"
-    ? "no"
-    : Nie
-    poor: Zlé
-    post: Komentár
-    rating: "%{useful} z %{total} považuje tento komentár za užitočný"
-    record: "Záznam #%{id}"
-    reply: Odpovedať
-    replying_to: "Odpoveď na komentár #%{parent}"
-    report: Zažalovať
-    report_label: "Zažalovať komentár"
-    spam_report: Spam
-    staff: Elita
-    suspend: Pozdržať
-    suspended: "Komentár pozdržaný"
-    useful: Užitočný
-    violation_report: "Porušenie pravidiel"
-    was_useful: "Bol tento komentár užitočný?"
-    ? "yes"
-    : Ano
   datasets:
     index:
       show_bad_quality: 'Všetky datasety'

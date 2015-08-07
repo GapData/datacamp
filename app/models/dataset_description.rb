@@ -17,7 +17,6 @@ class DatasetDescription < ActiveRecord::Base
   has_many :category_assignments
   has_many :field_description_categories, include: :translations, through: :category_assignments
 
-  has_many :comments
   belongs_to :category, :class_name => 'DatasetCategory'
 
   has_many :relations, :dependent => :destroy

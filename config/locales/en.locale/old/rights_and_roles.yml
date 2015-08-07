@@ -17,8 +17,6 @@ en:
         search_in_hidden_records: Search in hidden records
         use_in_development: Use features under development
         edit_system_settings: Edit system settings
-        moderate_comments: Moderate comments
-        delete_comments: Delete comments
         view_hidden_datasets: View hidden datasets
         search_in_hidden_datasets: Search in hidden datasets
     access_right_categories:
@@ -27,7 +25,6 @@ en:
         datastore: Data store
         users: Users
         system: System
-        comments: Comments
         settings: Settings
     access_roles:
         datastore_manager: Data store manager

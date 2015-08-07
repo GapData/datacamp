@@ -12,15 +12,9 @@
     - if current_user.has_privilege? :edit_dataset_description
       %li
         = link_to t("global.data_dictionary"), dataset_descriptions_path, class: active_page_class(dataset_descriptions_path)
-    - if current_user.has_one_of_rights?(:manage_users, :moderate_comments, :edit_system_settings, :edit_pages)
-      %li
-        = link_to t("global.settings"), settings_system_variables_path, class: active_page_class(settings_system_variables_path)
 
     - if current_user.has_privilege?(:manage_users)
       %li= link_to t("global.users"), settings_users_path, class: active_page_class(settings_users_path)
-
-    - if current_user.has_privilege?(:moderate_comments)
-      %li= link_to t("global.moderation"), settings_comments_path, class: active_page_class(settings_comments_path)
 
     - if current_user.has_privilege?(:edit_pages)
       %li= link_to t("global.pages"), settings_pages_path, class: active_page_class(settings_pages_path)

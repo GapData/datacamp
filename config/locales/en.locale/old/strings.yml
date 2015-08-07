@@ -38,28 +38,6 @@ en:
         edit_my_profile: Edit my profile
         create_new_password: Create new password
         change_password: Change your password
-    comments:
-        created_notice: 'The comment was created.'
-        created_error_notice: 'An error has occured while creating your comment. Please try again. If the problem persists, please contact the administrator.'
-        "no": "No"
-        "yes": "Yes"
-        neutral: Neutral
-        new: New comment
-        poor: Poor
-        post: Post
-        rating: "%{useful} out of %{total} find this comment useful."
-        record: "Record #%{id}"
-        reply: Reply
-        replying_to: "Replying to comment #%{parent}"
-        report_label: Report a comment
-        report: Report
-        spam_report: Spam
-        staff: Master
-        suspend: Suspend
-        suspended: Comment suspended
-        useful: Useful
-        violation_report: Violation of rules
-        was_useful: Was this comment useful?
     watchers: 
         sign_up: Sign-up for updates
         watcher_list: List of watchers

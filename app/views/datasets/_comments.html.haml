@@ -1,6 +1,0 @@
-.comment_list
-  = render @comments
-
-- if logged_in?
-  .new_comment
-    = render :partial => "comments/form", :locals => {:comment => @new_comment}

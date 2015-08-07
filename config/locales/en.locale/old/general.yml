@@ -17,12 +17,10 @@ en:
     create_record: Create record
     information: Information
     edit_description: Edit information
-    comments: Comments
     record:
       back: Back
       edit: Edit
       delete: Delete
-      comments: Comments
       metadata: Metadata
       created_on: Created on
       valid_from: Valid from

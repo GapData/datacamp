@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150624212709) do
+ActiveRecord::Schema.define(:version => 20150806161356) do
 
   create_table "access_rights", :force => true do |t|
     t.string   "identifier"
@@ -86,40 +86,6 @@ ActiveRecord::Schema.define(:version => 20150624212709) do
     t.text     "dataset_description_cache"
     t.text     "change_details",            :limit => 16777215
   end
-
-  create_table "comment_ratings", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "comment_id"
-    t.integer  "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "comment_reports", :force => true do |t|
-    t.integer  "comment_id"
-    t.integer  "user_id"
-    t.string   "type"
-    t.string   "reason"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "comments", :force => true do |t|
-    t.string   "title"
-    t.text     "text"
-    t.integer  "user_id"
-    t.integer  "dataset_description_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "is_staff"
-    t.integer  "parent_comment_id"
-    t.boolean  "is_suspended"
-    t.integer  "record_id"
-    t.integer  "count_positive_ratings"
-    t.integer  "count_negative_ratings"
-  end
-
-  add_index "comments", ["is_suspended", "dataset_description_id", "record_id"], :name => "index_comments_on_is_suspend_and_dataset_description_and_record"
 
   create_table "data_formats", :force => true do |t|
     t.string   "name"

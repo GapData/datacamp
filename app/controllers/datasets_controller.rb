@@ -20,7 +20,6 @@
   # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class DatasetsController < ApplicationController
-  include CommentsLoader
 
   before_filter :prepare_filters, :only => [:show, :update]
   privilege_required :edit_record, :only => [:update]
@@ -59,9 +58,6 @@ class DatasetsController < ApplicationController
       flash[:error] = I18n.t("dataset.internal_dataset_error", :title => @dataset_description.title)
       return redirect_to datasets_path
     end
-
-    # Comments
-    load_comments
 
     # Favorite if there's one
     @favorite = current_user.favorite_for!(@dataset_description, @record) if current_user

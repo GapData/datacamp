@@ -76,6 +76,4 @@ Misc
 These are not linked to a role
 
 * use_in_development -> not used
-* moderate_comments -> OK used to protect Comments CRUD, show in menu
-* delete_comments -> not used 
 

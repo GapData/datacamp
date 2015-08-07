@@ -12,28 +12,6 @@ sk:
       template: 
         body: "Prosím pozrite si tieto chyby a opravte príslušné polia"
         header: "Uloženiu zabránilo niekoľko chýb"
-  comments: 
-    foo: Anofff
-    neutral: Neutral
-    new: "Nový komentár"
-    ? "no"
-    : Nie
-    poor: Zlé
-    post: Komentár
-    record: "Záznam #%{id}"
-    reply: Odpovedať
-    replying_to: "Odpoveď na komentár #%{parent}"
-    report: Zažalovať
-    report_label: "Zažalovať komentár"
-    spam: Spam
-    staff: Elita
-    suspend: Pozdržať
-    suspended: "Komentár pozdržaný"
-    useful: Užitočný
-    violation: "Porušenie pravidiel"
-    was_useful: "Bol tento komentár užitočný?"
-    ? "yes"
-    : Ano
   dataset: 
     add_field_description: "Pridať popis položky"
     columns_for_import: "Stĺpce pre import"
@@ -128,8 +106,6 @@ sk:
     cancel: Odvolať
     collapse: Zbaliť
     collection_mode: "Spôsob zberu"
-    comment: Komentáre
-    comments: Komentáre
     continue: Pokračovať
     create: "Vytvoriť nové"
     data: Údaje
