@@ -32,7 +32,7 @@
       = link_to t('.show_bad_quality'), datasets_path, class: "view_wrong_dataset #{'active' if !@only_good}", onclick: "_gaq.push(['_trackEvent', 'katalog-udajov-tlacidlo-vsetky-datasety', '1']);"
 
 - @dataset_categories.each do |dataset_category|
-  .catalog-header= dataset_category.title
+  .catalog-header{id: dataset_category.title.parameterize}= dataset_category.title
   #table-catalog{class: dom_id(dataset_category)}
     %ul.body
       - dataset_category.filtered_descriptions(@only_good).each do |description|
