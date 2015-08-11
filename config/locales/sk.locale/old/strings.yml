@@ -8,7 +8,7 @@ sk:
       restricted: Zakázané
       regular: Obyčajné
       premium: Premium
-    allowed_for_dataset: Download
+    allowed_for_dataset: Stiahnuť dataset
     disallowed_for_dataset: Dataset nie je možné stiahnuť
   blocks_heading: Aplikácie postavené na Dataneste
   blocks:

@@ -7,7 +7,7 @@ en:
             restricted: Restricted
             regular: Regular
             premium: Premium
-        allowed_for_dataset: Download
+        allowed_for_dataset: Download dataset
         disallowed_for_dataset: Dataset cannot be downloaded
     blocks_heading: Applications built on Datanest API
     blocks:
