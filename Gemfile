@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
 
 ruby '2.2.2'
+
 gem 'rails', '3.2.22'
+gem 'rails-i18n', '~> 3.0.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

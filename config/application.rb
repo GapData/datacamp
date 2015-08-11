@@ -46,7 +46,7 @@ module Datacamp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.i18n.enforce_available_locales = false # silence warning "[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message."
+    config.i18n.available_locales = [:en, :sk]
     config.i18n.load_path = Dir[File.join(Rails.root, 'config', 'locales', '**', '*.{rb,yml}')]
     config.i18n.default_locale = :sk
     config.i18n.locale = config.i18n.default_locale # weird bug, but this fix the problem in test and production environment http://stackoverflow.com/questions/8478597/rails-3-set-i18n-locale-is-not-working
@@ -67,5 +67,7 @@ module Datacamp
     config.after_initialize do
       SphinxDatasetIndex.define_indices_for_all_datasets
     end
+
+
   end
 end

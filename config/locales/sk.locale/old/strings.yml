@@ -147,7 +147,10 @@ sk:
     search_term: Výraz
     searching_wait_notice: "Vyhľadávam ..."
     through: "Vyhľadávať v %{dataset}"
-    showing_first_results: Zobrazuje prvých %{showing_count} záznamov z %{all_count}.
+    showing_first_results:
+      one: Zobrazuje sa %{count} záznam z celkového počtu %{all_count}.
+      few: Zobrazujú sa %{count} záznamy z celkového počtu %{all_count}.
+      other: Zobrazuje sa %{count} záznamov z celkového počtu %{all_count}.
     header: 'Rozšírené vyhľadávanie'
     help: "Tu bude text o vyhladavani"
     add_filter: + Pridať filter

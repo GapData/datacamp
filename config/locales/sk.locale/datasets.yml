@@ -2,7 +2,10 @@ sk:
   datasets:
     search_status:
       sphinx_single_negative_search: "Požiadavku nie je možné spracovať, keďže obsahuje iba špecfikácie 'neobsahuje'. Pridajte jednu z pozitívnych špecifikácií aby sme mohli zobraziť výsledky."
-      active_search: "Záznamy sú filtrované %{predicates} podmienkami"
+      active_search:
+        one: "Záznamy sú filtrované %{count} podmienkou"
+        few: "Záznamy sú filtrované %{count} podmienkami"
+        other: "Záznamy sú filtrované %{count} podmienkami"
 
 
   dataset:

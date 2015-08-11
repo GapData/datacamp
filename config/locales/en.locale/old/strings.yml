@@ -192,7 +192,9 @@ en:
         results: "%{results} results"
         more_results: More results
         any_field: Any field
-        showing_first_results: Showing first %{showing_count} of %{all_count}.
+        showing_first_results:
+            one: Showing %{count} record of %{all_count} in total.
+            other: Showing %{count} records of %{all_count} in total.
         header: 'Advanced search'
         help: Help text here
         add_filter: + Add filter

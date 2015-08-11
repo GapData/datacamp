@@ -28,7 +28,7 @@
                   =link_to result.get_html_value(field) || '', dataset_record_path(result.dataset, result, :page => params[:page]), class: [:cell, field.data_type]
 
       .wrap-more-about
-        =t('search.showing_first_results', :all_count => result_records.total_entries, :showing_count => (result_records.total_entries > 5 ? 5 : result_records.total_entries))
+        =t('search.showing_first_results', :all_count => result_records.total_entries, :count => (result_records.total_entries > 5 ? 5 : result_records.total_entries))
         =link_to(t("search.more_results"), dataset_path(dataset_description, :search_id => @search.id), :class => "more-about")
 
   %a.go-top{href: '#wrap-search-results'}= t('search.top')
