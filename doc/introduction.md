@@ -4,7 +4,7 @@
 
 Datacamp is a Web application for publishing, searching and managing data in form of datasets.
 
-![](images/intro.jpg)
+![intro](images/intro.jpg)
 
 ## Overview 
 
@@ -15,7 +15,7 @@ The project consists of multiple parts:
 - sphinx fulltext search
 - backround worker
 
-![](images/architecture.png)
+![architecture](images/architecture.png)
 
 ### Databases
 

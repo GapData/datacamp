@@ -31,37 +31,37 @@
 
 	- from local
 
-		$ bundle exec cap production deploy:start
+			$ bundle exec cap production deploy:start
 			
-		$ bundle exec cap production deploy:stop
+			$ bundle exec cap production deploy:stop
 			
-		$ bundle exec cap production deploy:restart
+			$ bundle exec cap production deploy:restart
 
 	- from server
 
-    	$ sudo sv up datanest
+    		$ sudo sv up datanest
     		
-    	$ sudo sv down datanest
+    		$ sudo sv down datanest
     		
-    	$ sudo sv restart datanest
+    		$ sudo sv restart datanest
 
 - restart staging server
 
 	- from local
 
-		$ bundle exec cap production deploy:start
+			$ bundle exec cap production deploy:start
 			
-		$ bundle exec cap production deploy:stop
+			$ bundle exec cap production deploy:stop
 			
-		$ bundle exec cap production deploy:restart
+			$ bundle exec cap production deploy:restart
 
 	- from server
 
-		$ sudo sv up datanest/staging
+			$ sudo sv up datanest/staging
 			
-		$ sudo sv down datanest/staging
+			$ sudo sv down datanest/staging
 			
-		$ sudo sv restart datanest/staging
+			$ sudo sv restart datanest/staging
 
 
 - restart delay job
@@ -72,7 +72,5 @@
 
 ## Testing ##
 
-- bundle exec rspec spec/
+- bundle exec rake
 - bundle exec cucumber
-
-## Integration ##
