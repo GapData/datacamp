@@ -21,6 +21,7 @@
 
 class AccountsController < ApplicationController
   before_filter :login_required, :except => [:forgot, :restore, :new, :create]
+  before_filter :authenticate_user!
   before_filter :get_account, :only => [:show, :password, :update]
 
   def show
