@@ -5,7 +5,6 @@
       = link_to t("settings.users.download_csv"), settings_users_path(:format => "csv")
 
     .buttons.clearfix.fr
-      =link_to "<span>Watchers</span>".html_safe, watchers_path, :class => "button"
       =link_to "<span>New User</span>".html_safe, new_settings_user_path, :class => "button"
 
   = form_tag settings_users_path, :method => "get" do

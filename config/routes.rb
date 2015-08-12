@@ -54,10 +54,6 @@ Datacamp::Application.routes.draw do
       end
     end
 
-
-
-
-    resources :watchers
     resources :activities, only: [:index, :show]
 
     resources :data_repairs do

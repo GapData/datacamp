@@ -203,10 +203,3 @@ sk:
   users: 
     my_account: "Moje konto"
     user_not_found: "Používateľ nebol nájdený"
-  watchers: 
-    email: E-mail
-    organization: Organizácia
-    sign_up: "Registrovať sa pre oznámenie o novinkách."
-    signup: "Registrovať sa"
-    success: "Budeme vás včas informovať."
-    title: "Zoznam záujemcov."
