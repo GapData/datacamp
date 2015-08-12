@@ -200,13 +200,6 @@ sk:
       code_invalid: 'Obnovovací kód je neplatný.'
   validations: 
     blank: "nemôže byť prázdne"
-  watchers: 
-    email: E-mail
-    organization: Organizácia
-    sign_up: "Registrovať sa pre oznámenie o novinkách."
-    signup: "Registrovať sa"
-    success: "Budeme vás včas informovať."
-    watcher_list: "Zoznam sledujúcich"
   settings:
     users:
       users: Používatelia

@@ -38,13 +38,6 @@ en:
         edit_my_profile: Edit my profile
         create_new_password: Create new password
         change_password: Change your password
-    watchers: 
-        sign_up: Sign-up for updates
-        watcher_list: List of watchers
-        signup: Sign up
-        success: You have signed up for news. We will inform you as soon as possible.
-        organization: Organization
-        email: Email
     rights: 
         data_management: Data Management
         data_dictionary: Data Dictionary

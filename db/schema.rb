@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150806161356) do
+ActiveRecord::Schema.define(:version => 20150812100700) do
 
   create_table "access_rights", :force => true do |t|
     t.string   "identifier"
@@ -457,12 +457,5 @@ ActiveRecord::Schema.define(:version => 20150806161356) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
-
-  create_table "watchers", :force => true do |t|
-    t.string   "email"
-    t.string   "organization"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
