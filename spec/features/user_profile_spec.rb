@@ -70,6 +70,12 @@ describe 'UserProfile' do
     page.should have_content 'User data update was successfull.'
   end
 
+  it 'redirect user to login when he access page that require login' do
+    visit password_account_path(locale: :en)
+
+    current_path.should eq login_path
+  end
+
   private
 
   def change_password_to(new_password)
