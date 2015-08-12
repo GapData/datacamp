@@ -97,7 +97,7 @@ class DatasetsController < ApplicationController
       sort_direction = sanitize_sort_direction(params[:dir])
       if params[:sort] && params[:page]
         # This ugly thing is here because mysql is lame and doesn't use indexes when there is just an order and a limit on the select (pagination with ordering)...
-        total_pages = @dataset_class.count.to_i
+        total_entries = @dataset_class.count
         page = params[:page].to_i
         per_page = paginate_options[:per_page].to_i
 
@@ -116,10 +116,12 @@ class DatasetsController < ApplicationController
             end
           end
         end
-        @records.define_singleton_method(:total_pages) { (total_pages/per_page.to_f).ceil }
-        @records.define_singleton_method(:current_page) { page }
-        @records.define_singleton_method(:previous_page) { page > 1 ? (page - 1) : nil }
-        @records.define_singleton_method(:next_page) { page < total_pages ? (page + 1) : nil }
+
+        records = @records
+        @records = WillPaginate::Collection.create(page, per_page, total_entries) do |pager|
+          pager.replace(records)
+        end
+
       else
         if params[:sort]
           @dataset_class = @dataset_class.order("`#{sanitize_sort_column(params[:sort], @sortable_columns)}` #{sort_direction}")

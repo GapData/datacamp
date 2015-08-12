@@ -65,23 +65,20 @@ describe 'Datasets' do
       page.should have_content 'Published'
     end
 
-    it 'is able to sort records by column' do
+    it 'is able to sort records by column with pagination' do
       FactoryGirl.create(:field_description, en_title: 'First name', identifier: 'first_name', dataset_description: quality_dataset)
 
-      record_1 = quality_dataset.dataset_model.create!(first_name: 'John', record_status: Dataset::RecordStatus.find(:published))
-      record_2 = quality_dataset.dataset_model.create!(first_name: 'Ann', record_status: Dataset::RecordStatus.find(:published))
+      100.times do |index|
+        quality_dataset.dataset_model.create!(:first_name => "Xavier#{index}", record_status: Dataset::RecordStatus.find(:published))
+      end
 
       visit dataset_path(id: quality_dataset, locale: :en)
 
-      record_1.first_name.should appear_before(record_2.first_name)
+      click_link 'First name'
+      page.should have_content 'Xavier1'
 
       click_link 'First name'
-
-      record_2.first_name.should appear_before(record_1.first_name)
-
-      click_link 'First name'
-
-      record_1.first_name.should appear_before(record_2.first_name)
+      page.should have_content 'Xavier99'
     end
   end
 
