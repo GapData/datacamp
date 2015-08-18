@@ -20,7 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class FavoritesController < ApplicationController
-  before_filter :login_required
+  before_filter :authenticate_user!
   
   def new
     @favorite = Favorite.new

@@ -80,6 +80,10 @@ private
     verify_recaptcha(private_key: ENV['DATANEST_CAPTCHA_PRIVATE_KEY'], model: model)
   end
 
+  def authenticate_user!
+    redirect_to login_path, alert: t('users.login_needed') unless logged_in?
+  end
+
   protected
 
   def update_all_positions(model, ids)

@@ -151,6 +151,7 @@ en:
         no_api_key_for: "%{user} doesn't have any API key yet."
         logged_in: "You was logged in successfuly"
         insufficient_privileges: "You have insufficient privileges to perform action %{action}."
+        login_needed: "You need to log in"
         register: Sign up for account
         registration_complete: "Your account has been created."
         update_successfull: "User data update was successfull."
