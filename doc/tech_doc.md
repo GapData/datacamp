@@ -23,7 +23,7 @@ The project consists of multiple parts:
 
 ## RoR application
 
-The application manages/presents and logs the data in a way that is accessible to all kinds of users, from journalists to developers. The app uses information stored in the app database to present the data in the data database. Detailed info about user roles can be found [here](doc/roles.md).
+The application manages/presents and logs the data in a way that is accessible to all kinds of users, from journalists to developers. The app uses information stored in the app database to present the data in the data database. Detailed info about user roles can be found [here](roles.md).
 
 ## Fulltext search
 
