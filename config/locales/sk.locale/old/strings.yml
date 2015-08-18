@@ -248,4 +248,5 @@ sk:
       single_page_html:
         zero:  "Bez výsledkov"
         one:   "1 výsledok"
+        few: "1&nbsp;-&nbsp;%{count} z %{count}"
         other: "1&nbsp;-&nbsp;%{count} z %{count}"
