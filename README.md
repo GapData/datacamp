@@ -17,6 +17,9 @@ bin/setup
 foreman start
 ````
 
+## [TECHNICAL DOCS](doc/tech_doc.md)
+ 
+
 ## LICENSE
 (see COPYING file for full license text)
 
@@ -37,3 +40,4 @@ GNU General Public License for more details.
 * Michal Olah <olahmichal(at)gmail.com> - main application programming
 * Stefan Urbanek <stefan@knowerce.sk> - architecture design, back-end programming
 * Vojto Rinik <vojto@rinik.net> - application programming
+* and [contributors](https://github.com/fairplaysk/datacamp/graphs/contributors)
