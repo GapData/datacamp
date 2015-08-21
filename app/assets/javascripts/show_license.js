@@ -1,7 +1,8 @@
 $(function() {
-  $('#overlay').click(function() {
-    $(this).hide();
+  $('#overlay, [data-show-license-abort]').click(function(e) {
+    $('#overlay').hide();
     $('#pop-up-window').hide();
+    e.preventDefault();
   });
 
   $('[data-show-license]').click(function() {
@@ -14,6 +15,8 @@ $(function() {
 
       $("#pop-up-window form").submit(function(e) {
         setTimeout(function() {
+          $('#overlay').hide();
+          $('#pop-up-window').hide();
           window.location.href = $dataset.data('dataset-url');
         }, 100);
       });

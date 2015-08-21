@@ -3,29 +3,42 @@
 #pop-up-window{style: 'display: none'}
   %form{action: 'https://docs.google.com/forms/d/1VgIGmCwW0h3QWa0g6WHDCo5NN15fwXqEyopNYhzL3h0/formResponse', target: 'google_forms_iframe'}
     .wrap
-      %h1
-        Chystáte sa stiahnuť si dataset
-        %strong{'data-license-var-dataset': ''}
-      %p Dataset sa stiahne vo formáte CSV, otvoríte ho v Exceli alebo v inom tabuľkovom editore. <a href="">Čo je to CSV?</a>
-      %p Pri použití dát prosím dbajte o licenčné podmienky, pod ktorými boli tieto dáta zverejnené.
-      %p Dáta je možné:
-      %ul
-        %li bezplatne sťahovať, upravovať a ďalej používať na akýkoľvek komerčný aj nekomerčný účel,
-        %li v prípade použitia je potrebné ako zdroj dát uviesť Datanest Aliancie Fair-play,
-        %li dať nám vedieť, akým spôsobom boli opre vás dáta užitočné, prípadne konkrétne ste ich použili na <a href="mailto:admin@datanest.sk">admin@datanest.sk</a>
-      %span Prečítajte si plné znenie <a href="">licenčných podmienok</a>
+      %a.abort{href: '#', data: {show_license_abort: true}}
+      %h1 Chystáte sa stiahnuť si dataset
+      %h1.dataset-name{'data-license-var-dataset': ''}
+      %p Dataset sa stiahne vo formáte CSV, otvoríte ho napríklad v Exceli.</a>
+      %p
+        Pri použití dát, prosím, dbajte na
+        =link_to 'licenčné podmienky', page_path('copyright')
+        a
+        =link_to 'podmienky používania.', page_path('terms_of_service')
+      %p
+        Dáta môžete sťahovať, upravovať a ďalej akokoľvek komerčne aj nekomerčne
+        používať. Vždy však uvádzajte zdroj dát – Datanest Aliancie Fair-play - a
+        dajte nám, prosím, vedieť na datanest@fair-play.sk, či boli pre vás dáta
+        užitočné, prípadne ako ste ich použili.
     .wrap-supplement
       %p Nakoľko v Dataneste nie ste prihlásený, chceme vás poprosiť o základné údaje o vás. Sú nepovinné, ale pomôžu nám zlepšiť web do budúcna.
       .left
         %label{for: 'entry.435374113'}
-        %input{type: :text, class: :text, name: 'entry.435374113'}
+        %input{type: :text, class: :text, name: 'entry.435374113', placeholder: 'Emailová adresa'}
       .left
         %label{for: 'entry.1009556207'}
         %select{name: 'entry.1009556207'}
-          %option Vyberte z ponuky
-          %option Analytik
-          %option Developer
+          %option Pracujem ako
           %option Novinár
+          %option Dizajnér
+          %option Programátor
+          %option Podnikateľ
+          %option Študent
+          %option Manažér v komerčnej sfére
+          %option Manažér v neziskovke
+          %option Štátny úradník
+          %option Politik
+          %option Policajt
+          %option Marketér
+          %option Audítor
+          %option Ekonóm
           %option Iné
     .wrap-send
       %input.button-send{type: :submit, value: 'OK'}

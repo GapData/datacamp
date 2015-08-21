@@ -1408,118 +1408,133 @@ a.button-metadata {
 }
 
 
-
-
-
-
 /* Pop-up Window */
 #pop-up-window {
-    display: block;
-    color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    left: 50%;
-    top: 30px;
-    line-height: 18px;
-    margin: 50px 0 0 -250px;
-    padding: 0;
-    position: fixed;
-    width: 500px;
-    z-index: 1001;
+	background: #4d4d4d;
+	display: block;
+	color: #ffffff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+    top: 20px;
+	left: 50%;
+	line-height: 19px;
+	margin: 50px 0 0 -250px;
+	padding: 0;
+	position: fixed;
+	width: 500px;
+	z-index: 1001;
 }
 #pop-up-window .wrap {
-    background: #5dc550;
-    
-    display: block;
-    margin: 0;
-    padding: 30px 35px;
-    position: relative;
+	background: #4d4d4d;
+	display: block;
+	margin: 0;
+	padding: 25px 30px 10px 30px;
+	position: relative;
 }
 #pop-up-window .wrap-send {
-    background: #f9f9f9;
-    display: block;
-    margin: 0;
-    padding: 30px 35px;
-    overflow: hidden;
+	background: #f9f9f9;
+	display: block;
+	margin: 0;
+	padding: 20px 30px;
+	overflow: hidden;
 }
 #pop-up-window .wrap-supplement {
-    background: #4d4d4d;
-    display: block;
-    float:none;
-    margin: 0;
-    overflow: hidden;
-    padding: 25px 30px 30px 30px;
+	border-top: 1px solid #666666;
+	display: block;
+	float:none;
+	margin: 0 30px;
+	overflow: hidden;
+	padding: 20px 0px 25px 0px;
 }
 #pop-up-window .wrap-nodisplay {
-    background: #4d4d4d;
-    display: block;
-    float:none;
-    margin: 0;
-    overflow: hidden;
-    padding: 10px;
+	background: #cccccc;
+	color: #444444;
+	display: block;
+	float:none;
+	margin: 0;
+	overflow: hidden;
+	padding: 10px;
 }
 #pop-up-window h1 {
-    font-size: 24px;
-    font-weight: 300;
-    line-height: 30px;
-    margin: -10px 0 0 0;
-    padding: 10px 0 20px 0;
-    text-align: left;
-    text-transform: uppercase;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 30px;
+	margin:0;
+	padding: 0;
+	text-align: left;
+	text-transform: uppercase;
+}
+#pop-up-window h1.dataset-name {
+	color: #5dc550;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 30px;
+	margin: 0;
+	padding: 0 0 15px 0;
+	text-align: left;
+	text-transform: uppercase;
 }
 #pop-up-window .button-send {
-    background: #5dc550;
-    color: #ffffff;
-    cursor: pointer;
-    border: none;
-    display: block;
-    font-size: 16px;
-    font-weight: 400;
-    float: right;
-    overflow: hidden;
-    padding: 15px 70px;
-    -webkit-transition: background 0.2s ease;
-    -moz-transition: background 0.2s ease;
-    -o-transition: background 0.2s ease;
-    transition: background 0.2s ease;
-    text-decoration: none;
+	background: #ffbf00;
+	color: #282828;
+	cursor: pointer;
+	border: none;
+	display: block;
+	font-size: 16px;
+	font-weight: 700;
+	float: right;
+	overflow: hidden;
+	padding: 12px 40px;
+	-webkit-transition: background 0.2s ease;
+	-moz-transition: background 0.2s ease;
+	-o-transition: background 0.2s ease;
+	transition: background 0.2s ease;
 }
 #pop-up-window label {
-    display: block;
+	display: block;
 }
 #pop-up-window select {
-    background-color: #ffffff;
-    width: 210px;
+	background-color: #ffffff;
+	width: 210px;
 }
 #pop-up-window .text {
-    background: #ffffff;
-    color: #333333;
-    border: none;
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    float:none;
-    margin: 0 19px 0 0;
-    overflow: hidden;
-    padding: 6px 10px 5px 10px;
-    width: 190px;
+	background: #ffffff;
+	color: #333333;
+	border: none;
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+	float:none;
+	margin: 0 19px 0 0;
+	overflow: hidden;
+	padding: 6px 10px 5px 10px;
+	width: 190px;
 }
 #pop-up-window ul {
-    padding: 0 30px 0 30px;
+	padding: 0 30px 0 30px;
 }
 #pop-up-window li {
-    list-style: disc;
-    padding: 0 0 10px 0;
+	list-style: disc;
+	padding: 0 0 0 0;
 }
 #pop-up-window p {
-    margin: 0 0 8px 0;
+	margin: 0 0 12px 0;
 }
 #pop-up-window a {
-    color: #ffffff;
+	color: #ffffff;
 }
 #pop-up-window .left {
-    float: left;
+	float: left;
+}
+#pop-up-window a.abort {
+	background: image-url('abort-cross.png');
+	display: block;
+	height: 13px;
+	width: 13px;
+	position: absolute;
+	top: 15px;
+	right: 15px;
 }
 
 
