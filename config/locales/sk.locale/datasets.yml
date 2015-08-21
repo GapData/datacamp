@@ -79,7 +79,7 @@ sk:
     type: Typ
     uninitialized_datasets: "Neinicialozované súbory údajov"
     visibility_settings: "Nastavenia zobrazenia"
-    csv_export: 'Stiahnuť CSV'
+    csv_export: 'Stiahnuť dataset (CSV)'
     description_xml: 'Stiahnuť popis datasetu (XML)'
     changes_xml: 'Stiahnuť iba zmeny (XML)'
     relations_xml: 'Stiahnuť dáta o vzťahoch (XML)'

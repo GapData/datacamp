@@ -81,7 +81,7 @@ en:
     edit_search: Edit search
     data: Data
     meta_information: Meta information
-    csv_export: Download CSV
+    csv_export: Download dataset (CSV)
     description_xml: Download data description (XML)
     relations_xml: Download data relations (XML)
     changes_xml: Download changes (XML)

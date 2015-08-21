@@ -1,10 +1,10 @@
 %ul#navigation-account
   %li.last
-    = link_to '', "http://twitter.com/alianciaFP", class: 'twitter'
+    = link_to '', "http://twitter.com/alianciaFP", class: 'twitter', target: :_blank
   %li.last
-    = link_to '', 'http://www.facebook.com/pages/Datanest-Aliancie-Fair-play/151055951576439', class: 'facebook'
+    = link_to '', 'http://www.facebook.com/pages/Datanest-Aliancie-Fair-play/151055951576439', class: 'facebook', target: :_blank
 
-  - I18N_LOCALES.each do |locale|
+  -# I18N_LOCALES.each do |locale|
     - if I18n.locale != locale
       %li= link_to I18N_LOCALE_NAMES[locale], url_for(:locale => locale.to_s), :class => "forward_hash"
 

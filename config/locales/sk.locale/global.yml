@@ -47,7 +47,7 @@ sk:
     load_error: "Nie je možné načítať %{what}"
     login: Prihlásenie
     logout: Odhlásenie
-    metadata: Metadata
+    metadata: Metadáta
     moderation: Moderácia
     move: presunúť
     name: Meno
@@ -90,7 +90,7 @@ sk:
     users: Používatelia
     value: Hodnota
     parsers: 'Parsery'
-    copyright: "2009&ndash;2015 &copy; Aliancia Fair-Play Beta verzia 1.0"
+    copyright_html: "2009&ndash;2015 &copy; Aliancia Fair-Play"
     report_error: "Upozorniť admina na chybu"
     favorite: "Obľúbené"
     share: "Zdieľať"
