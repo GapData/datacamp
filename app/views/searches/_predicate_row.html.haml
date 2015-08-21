@@ -17,6 +17,6 @@
             %option{value: operator, selected: (predicate && predicate.operator == operator.to_s ? "selected" : nil)}= t("operators.#{operator}")
 
   %span
-    %input{class: "search_value", name: "search[predicates][][value]", value: (predicate ? predicate.argument : "")}
+    %input{class: "search_value", name: "search[predicates][][value]", value: (predicate ? predicate.argument : ''), placeholder: t("search.enter_query")}
 
   %a{:href => "#", :class => "remove_row less"}

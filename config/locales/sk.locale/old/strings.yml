@@ -133,7 +133,8 @@ sk:
     data_management: "Správa údajov"
     user_management: "Správa používateľov"
   search: 
-    any_field: "‹ Akákoľvek položka ›"
+    any_field: Akákoľvek položka
+    any_dataset: Akýkoľvek dataset
     categories: Kategórie
     create_search: "Vytvorte vyhľadávanie pre %{dataset}"
     dataset_name: "Súbor údajov"
@@ -157,6 +158,7 @@ sk:
     search_results: Výsledky vyhľadávania
     top: ísť hore
     no_results: Je nám ľúto, pre hľadaný výraz sme nenašli žiadne výsledky. Skúste ho preformulovať, alebo zadať iný výraz.
+    enter_query: "Zadajte hľadaný výraz"
   session: 
     login: Prihlásenie
     lost_password: "Zabudli ste heslo?"

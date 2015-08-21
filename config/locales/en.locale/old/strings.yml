@@ -185,7 +185,10 @@ en:
         processing: "Processing your search"
         results: "%{results} results"
         more_results: More results
+        no_results: We are sorry, there are no results for your current search query. Please try to reformulate your query query.
         any_field: Any field
+        any_dataset: Any dataset
+        enter_query: Enter query
         showing_first_results:
             one: Showing %{count} record of %{all_count} in total.
             other: Showing %{count} records of %{all_count} in total.
