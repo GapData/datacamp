@@ -50,6 +50,7 @@ Datacamp::Application.routes.draw do
     resources :searches, only: [:new, :create, :show] do
       collection do
         post :quick
+        get :quick
         get :predicate_rows
       end
     end

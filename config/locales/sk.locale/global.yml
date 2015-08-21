@@ -95,3 +95,8 @@ sk:
     favorite: "Obľúbené"
     share: "Zdieľať"
     home: Domov
+
+  search_help_html: |
+    <p>Na Dataneste môžete hľadať firmy, osoby, názvy zákazok, projektov podporených z dotácií a rôzne iné položky vzťahujúce sa k čerpaniu verejných peňazí.</p>
+    <p>Použiť môžete okrem základného aj rozšírené vyhľadávanie, ktoré umožňuje filtrovanie súčasne podľa viacerých kritérií. Filtrovanie funguje podobne ako v Exceli - filtrovať môžete zadaním názvu datasetu a pridaním filtra na záložke "Rozšírené vyhľadávanie".</p>
+    <p>Skúste zadať: <a href="/searches/quick?query_string=Siemens">Siemens</a>, <a href="/searches/quick?query_string=Granvia">Granvia</a>, <a href="/searches/quick?query_string=Skytoll">Skytoll</a></p>
