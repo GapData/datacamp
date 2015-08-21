@@ -31,7 +31,7 @@
         %strong= l @dataset_description.data_updated_at, format: :full
     %li
       = t '.published_count'
-      %strong= @dataset_description.record_count
+      %strong= number_with_delimiter(@dataset_description.record_count)
 
     %li
       = t '.data_provider'
