@@ -162,11 +162,11 @@ class DatasetsController < ApplicationController
 
   def show_search_results_for_dataset(paginate_options, sphinx_search)
     sphinx_search = {options: paginate_options, query: sphinx_search}
-    search = Search.find(params[:search_id])
-    sphinx_search = @dataset_description.build_sphinx_search(search, sphinx_search) # TODO: move to SearchEngine
+    @search = Search.find(params[:search_id])
+    sphinx_search = @dataset_description.build_sphinx_search(@search, sphinx_search) # TODO: move to SearchEngine
     sphinx_search[:options].merge!(populate: true, :conditions => { record_status: Dataset::RecordStatus.find(:published)})
     @records = @dataset_class.search(sphinx_search[:query], sphinx_search[:options])
-    @query_string = search.query_string
+    @query_string = @search.query_string
   end
 
   # Batch update

@@ -11,35 +11,36 @@
 
 %h1= @dataset_description.title
 
-#dataset-description-container
-  .dataset-description
-    %h2= textile @dataset_description.perex
+- unless @search
+  #dataset-description-container
+    .dataset-description
+      %h2= textile @dataset_description.perex
 
-    %div{data: {less_shown: true}}
-      .dataset-description-text= truncate(@dataset_description.description, length: 200)
-      = link_to t('.more_information'), nil, onclick: %{$('[data-less-shown]').hide();$('[data-more-shown]').show();GATracker._more_information_click('#{@dataset_description.identifier}'); return false;}
+      %div{data: {less_shown: true}}
+        .dataset-description-text= truncate(@dataset_description.description, length: 200)
+        = link_to t('.more_information'), nil, onclick: %{$('[data-less-shown]').hide();$('[data-more-shown]').show();GATracker._more_information_click('#{@dataset_description.identifier}'); return false;}
 
-    %div{data: {more_shown: true}, style: 'display: none'}
-      #information
-        = textile(@dataset_description.description)
-        = link_to t('.less_information'), nil, onclick: %{$('[data-more-shown]').hide();$('[data-less-shown]').show();return false;}
+      %div{data: {more_shown: true}, style: 'display: none'}
+        #information
+          = textile(@dataset_description.description)
+          = link_to t('.less_information'), nil, onclick: %{$('[data-more-shown]').hide();$('[data-less-shown]').show();return false;}
 
-  %ul#dataset-about
-    - if @dataset_description.data_updated_at.present?
+    %ul#dataset-about
+      - if @dataset_description.data_updated_at.present?
+        %li
+          = t '.last_update'
+          %strong= l @dataset_description.data_updated_at, format: :full
       %li
-        = t '.last_update'
-        %strong= l @dataset_description.data_updated_at, format: :full
-    %li
-      = t '.published_count'
-      %strong= number_with_delimiter(@dataset_description.record_count)
+        = t '.published_count'
+        %strong= number_with_delimiter(@dataset_description.record_count)
 
-    %li
-      = t '.data_provider'
-      %strong= @dataset_description.data_provider
+      %li
+        = t '.data_provider'
+        %strong= @dataset_description.data_provider
 
-  %ul#dataset-navigation
-    = render 'node_menu'
-    = render 'datasets/admin/navigation'
+    %ul#dataset-navigation
+      = render 'node_menu'
+      = render 'datasets/admin/navigation'
 
 - if @records.any?
   = render "pagination"
