@@ -15,13 +15,16 @@ $(function() {
 
       $("#pop-up-window form").submit(function(e) {
         setTimeout(function() {
-          $('#overlay').hide();
-          $('#pop-up-window').hide();
           window.location.href = $dataset.data('dataset-url');
         }, 100);
       });
       return false;
     }
+  });
+
+  $('[data-license-accept]').click(function() {
+    $('#overlay').hide();
+    $('#pop-up-window').hide();
   });
 
   $('[data-license-dont-show-again]').click(function() {
