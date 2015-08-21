@@ -165,8 +165,16 @@ class DatasetDescription < ActiveRecord::Base
     Dataset::DcUpdate.find_all_by_updatable_type(dataset_model.name)
   end
 
+  def has_changes?
+    Dataset::DcUpdate.where(updatable_type: dataset_model.name).exists?
+  end
+
   def fetch_relations
     Dataset::DcRelation.where('relatable_left_type = ? or relatable_right_type = ?', dataset_model.name, dataset_model.name)
+  end
+
+  def has_relations?
+    fetch_relations.exists?
   end
 
   def each_published_records

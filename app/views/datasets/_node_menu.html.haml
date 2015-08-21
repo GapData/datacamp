@@ -6,23 +6,25 @@
          data:{ 'tracking-dataset-id' => @dataset_description.identifier, show_license: true, license_for: @dataset_description.title, dataset_url: dataset_path}}= t("dataset.csv_export")
 
     - if logged_in?
-      %li.navigation
-        = link_to( t('dataset.relations_xml'), |
-                      url_for(controller: :api, |
-                              action: :dataset_relations, |
-                              api_key: @current_user.api_key.key, |
-                              dataset_id: @dataset_description.id, |
-                              format: :xml), |
-                      rel: 'download-relations', id: 'dataset_relations_xml', class: 'navigation js_download_relations', data:{ tracking_dataset_id: @dataset_description.identifier})
+      - if @dataset_description.has_relations?
+        %li.navigation
+          = link_to( t('dataset.relations_xml'), |
+                        url_for(controller: :api, |
+                                action: :dataset_relations, |
+                                api_key: @current_user.api_key.key, |
+                                dataset_id: @dataset_description.id, |
+                                format: :xml), |
+                        rel: 'download-relations', id: 'dataset_relations_xml', class: 'navigation js_download_relations', data:{ tracking_dataset_id: @dataset_description.identifier})
 
-      %li.navigation
-        = link_to( t('dataset.changes_xml'), |
-                      url_for( controller: :api, |
-                              action: :dataset_changes, |
-                              api_key:  @current_user.api_key.key, |
-                              dataset_id: @dataset_description.id, |
-                              format: :xml), |
-                      rel: 'download-changes', id: 'dataset_changes_in_xml', class: 'navigation js_download_changes', data:{ tracking_dataset_id: @dataset_description.identifier})
+      - if @dataset_description.has_changes?
+        %li.navigation
+          = link_to( t('dataset.changes_xml'), |
+                        url_for( controller: :api, |
+                                action: :dataset_changes, |
+                                api_key:  @current_user.api_key.key, |
+                                dataset_id: @dataset_description.id, |
+                                format: :xml), |
+                        rel: 'download-changes', id: 'dataset_changes_in_xml', class: 'navigation js_download_changes', data:{ tracking_dataset_id: @dataset_description.identifier})
 
     - if logged_in?
       %li.navigation
