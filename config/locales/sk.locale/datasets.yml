@@ -36,7 +36,7 @@ sk:
     description_updated: "popis súbora údajov bol aktualizovaný"
     descriptions: "Popisy súborov údajov"
     edit_description: "Upraviť popis"
-    edit_search: "Upraviť filter"
+    edit_search: Upraviť zadanie
     field_description: Položieka
     field_descriptions: "Popisy položiek"
     fields: Položky
