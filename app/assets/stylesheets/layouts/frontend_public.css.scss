@@ -581,7 +581,7 @@ ul#navigation-links a:hover {
 /************************************************************/
 
 #main {
-    background: url(image-path('background_frontpage.png')) no-repeat top center;
+    background: #eee;
     float: none;
     margin: 30px 0 0 0;
     overflow: hidden;
@@ -720,7 +720,6 @@ ul#news li {
 }
 ul#news a {
     color: #dddddd;
-    text-decoration: none;
 }
 ul#news a.link-to-news {
     color: #cccccc;
@@ -728,10 +727,6 @@ ul#news a.link-to-news {
 }
 ul#news a.link-to-news:hover {
     color: #ffffff;
-}
-ul#news a.link-to-news::after {
-    color: #ffffff;
-    content: " /";
 }
 ul#news a:hover {
     color: #ffffff;
