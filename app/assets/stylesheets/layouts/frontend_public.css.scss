@@ -522,6 +522,9 @@ ul#navigation-breadcrumb a:hover {
     left: 930px;
 }
 
+#searchline-info-container p {
+  margin-bottom: 1em;
+}
 
 
 
@@ -1586,6 +1589,12 @@ a.button-metadata {
 #wrap-search-results a.more-about:hover {
 	background: #5bb54e;
 }
+
+.no-results {
+  margin: 15px;
+  font-weight: bold;
+}
+
 a.go-top {
 	background: #f9f9f9 url(image-path('go-top-arrow.png')) center 10px no-repeat;
 	border: 1px solid #333333;

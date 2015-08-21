@@ -156,6 +156,7 @@ sk:
     add_filter: + Pridať filter
     search_results: Výsledky vyhľadávania
     top: ísť hore
+    no_results: Je nám ľúto, pre hľadaný výraz sme nenašli žiadne výsledky. Skúste ho preformulovať, alebo zadať iný výraz.
   session: 
     login: Prihlásenie
     lost_password: "Zabudli ste heslo?"

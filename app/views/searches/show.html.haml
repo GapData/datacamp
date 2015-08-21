@@ -3,32 +3,35 @@
   %li= link_to t('search.search_results'), url_for
 
 #wrap-search-results
-  - @results.each do |dataset_category, result|
-    - result.each do |dataset_description, result_records|
-      %h1
-        %span.category= link_to(dataset_category.title, category_id: dataset_category.id)
-        = dataset_description.title
+  - if @results.any?
+    - @results.each do |dataset_category, result|
+      - result.each do |dataset_description, result_records|
+        %h1
+          %span.category= link_to(dataset_category.title, category_id: dataset_category.id)
+          = dataset_description.title
 
-      - fds = dataset_description.field_descriptions_for_search.first(5)
+        - fds = dataset_description.field_descriptions_for_search.first(5)
 
-      #table-dataset
-        %ul.header
-          %li.row-header
-            - fds.each do |field|
-              %span.cell= field.title
-        %ul.body
-          - result_records.each do |result|
-            %li.row{class: cycle('odd', 'even')}
+        #table-dataset
+          %ul.header
+            %li.row-header
               - fds.each do |field|
-                - value = result.get_html_value(field)
-                - if value =~ /\<a.*?\>/
-                  %span.cell{class: field.data_type}
-                    =link_to result.get_html_value(field) || '', dataset_record_path(result.dataset, result, :page => params[:page])
-                - else
-                  =link_to result.get_html_value(field) || '', dataset_record_path(result.dataset, result, :page => params[:page]), class: [:cell, field.data_type]
+                %span.cell= field.title
+          %ul.body
+            - result_records.each do |result|
+              %li.row{class: cycle('odd', 'even')}
+                - fds.each do |field|
+                  - value = result.get_html_value(field)
+                  - if value =~ /\<a.*?\>/
+                    %span.cell{class: field.data_type}
+                      =link_to result.get_html_value(field) || '', dataset_record_path(result.dataset, result, :page => params[:page])
+                  - else
+                    =link_to result.get_html_value(field) || '', dataset_record_path(result.dataset, result, :page => params[:page]), class: [:cell, field.data_type]
 
-      .wrap-more-about
-        =t('search.showing_first_results', :all_count => result_records.total_entries, :count => (result_records.total_entries > 5 ? 5 : result_records.total_entries))
-        =link_to(t("search.more_results"), dataset_path(dataset_description, :search_id => @search.id), :class => "more-about")
+        .wrap-more-about
+          =t('search.showing_first_results', :all_count => result_records.total_entries, :count => (result_records.total_entries > 5 ? 5 : result_records.total_entries))
+          =link_to(t("search.more_results"), dataset_path(dataset_description, :search_id => @search.id), :class => "more-about")
 
-  %a.go-top{href: '#wrap-search-results'}= t('search.top')
+    %a.go-top{href: '#wrap-search-results'}= t('search.top')
+  - else
+    %p.no-results= t('search.no_results')

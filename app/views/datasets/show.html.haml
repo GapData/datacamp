@@ -41,13 +41,14 @@
     = render 'node_menu'
     = render 'datasets/admin/navigation'
 
-= render "pagination"
-
-#results
-  = render :partial => "search_status"
-  - if has_privilege?(:edit_record_metadata)
-    = render :partial => "datasets/admin/table"
-  - else
-    = render :partial => "datasets/table"
-
-= render "pagination"
+- if @records.any?
+  = render "pagination"
+  #results
+    = render :partial => "search_status"
+    - if has_privilege?(:edit_record_metadata)
+      = render :partial => "datasets/admin/table"
+    - else
+      = render :partial => "datasets/table"
+  = render "pagination"
+- else
+  %p.no-results= t('search.no_results')
