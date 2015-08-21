@@ -23,4 +23,7 @@ class MainController < ApplicationController
   def index
     @news = News.published.first
   end
+
+  def howto
+  end
 end

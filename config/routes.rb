@@ -13,6 +13,8 @@ Datacamp::Application.routes.draw do
   match '/register' => 'sessions#create'
   match '/signup' => 'sessions#new'
 
+  match '/how-to' => 'main#howto', :as => :howto
+
 
   scope "(:locale)", :locale => /sk|en/ do
 

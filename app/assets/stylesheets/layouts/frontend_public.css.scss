@@ -1750,3 +1750,88 @@ div._inscription_Loading div.text { display: block; margin: auto; width: 150px; 
 .error a {color:#8a1f11;}
 .notice a {color:#514721;}
 .success a {color:#264409;}
+
+
+/* How To Use */
+#how-to-use {
+    float: none;
+    overflow: hidden;
+}
+#how-to-use p {
+    font-size: 14px;
+    padding: 0 15px;
+}
+#box-container-how-to-use {
+    padding: 20px 0 0 15px;
+}
+#box-container-how-to-use .box {
+    background: #5dc550;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 300;
+    display: block;
+    float: left;
+    height: 240px;
+    line-height: 18px;
+    margin: 0 15px 15px 0;
+    padding: 30px;
+    width: 240px;
+}
+#box-container-how-to-use .principles {
+    background: #ffbf00;
+}
+#box-container-how-to-use .one {
+    background: #5dc550 image-url('box-1.png') no-repeat -10px -10px;
+    width: 555px;
+}
+#box-container-how-to-use .two {
+    background: #5dc550 image-url('box-2.png') no-repeat -10px -10px;
+}
+#box-container-how-to-use .three {
+    background: #5dc550 image-url('box-3.png') no-repeat -10px -10px;
+}
+#box-container-how-to-use .four {
+    background: #5dc550 image-url('box-4.png') no-repeat -10px -10px;
+}
+#box-container-how-to-use .five {
+    background: #5dc550 image-url('box-5.png') no-repeat -10px -10px;
+    width: 555px;
+}
+#box-container-how-to-use .six {
+    background: #808080;
+}
+#box-container-how-to-use p {
+    font-size: 13px;
+    font-weight: 300;
+    padding: 0 0 20px 0;
+}
+#box-container-how-to-use h2 {
+    color: #333333;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+#box-container-how-to-use h3 {
+    color: #333333;
+    font-size: 16px;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+}
+#box-container-how-to-use .important {
+    color: #333333;
+    font-weight: 700;
+}
+#box-container-how-to-use .columns {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+}
+#box-container-how-to-use a {
+    color: #ffffff;
+}
+#box-container-how-to-use a:hover {
+    color: #333333;
+  }
