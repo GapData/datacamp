@@ -21,7 +21,7 @@
         %ul.body.search_row= render :partial => "searches/predicate_row"
 
     .buttons-wrap
-      =submit_tag t('search.add_filter'), class: 'add_row button-add-filter'
+      %input.add_row.button-add-filter{type: 'button', value: t('search.add_filter')}
 
     .buttons-wrap
       .search_button_container= submit_tag t('search.search_action'), id: 'search_now', class: 'search-button'
