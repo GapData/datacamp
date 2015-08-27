@@ -25,10 +25,9 @@ $(function() {
   $('[data-license-accept]').click(function() {
     $('#overlay').hide();
     $('#pop-up-window').hide();
-  });
 
-  $('[data-license-dont-show-again]').click(function() {
-    $.cookie('license_accepted', '1', { expires: 365, path: '/' });
+    if($('[data-license-dont-show-again]').is(':checked')) {
+      $.cookie('license_accepted', '1', { expires: 365, path: '/' });
+    }
   });
-
 });
