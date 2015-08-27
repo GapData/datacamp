@@ -241,3 +241,7 @@ en:
           zero:  "No results found"
           one:   "1 result"
           other: "1&nbsp;-&nbsp;%{count} of %{count}"
+
+    accounts:
+      show:
+        api: API key

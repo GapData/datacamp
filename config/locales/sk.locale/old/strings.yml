@@ -254,3 +254,7 @@ sk:
         one:   "1 výsledok"
         few: "1&nbsp;-&nbsp;%{count} z %{count}"
         other: "1&nbsp;-&nbsp;%{count} z %{count}"
+
+  accounts:
+    show:
+      api: API kľúč
