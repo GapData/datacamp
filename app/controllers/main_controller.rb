@@ -26,4 +26,7 @@ class MainController < ApplicationController
 
   def howto
   end
+
+  def api_access
+  end
 end

@@ -1,0 +1,31 @@
+<% if current_user && current_user.api_key %>
+  <h1>API kľúč</h1>
+  <%= current_user.api_key.key %>
+<% end %>
+
+
+<h1>API</h1>
+<div class="" id="page_content">
+  <h3><strong>Ako pracovať s <span class="caps">API</span> Datanestu</strong><br><br></h3>
+
+  <p>Pre používanie <span class="caps">API</span> majú konto aktivované všetci zaregistrovaní používatelia. Ak sa stretnete s chybou “access_denied”, požiadajte správcu stránky o aktiváciu vášho konta pre používanie <span class="caps">API</span>.<br><br></p>
+
+  <p>K použitiu <span class="caps">API</span> je potrebný <span class="caps">API</span> kľuč. K dispozícii ho dostáva každý zaregistrovaný používateľ a pre každého používateľa je unikátny. Každý používateľ si môže nechať vygenerovať nový kľúč.<br><br></p>
+
+  <p>Pre prácu s <span class="caps">API</span> je potrebné ID datasetu, s ktorým chcete pracovať. Dataset ID je unikátne číslo datasetu. Ak si otvoríte dataset, v adrese uvidíte napríklad /datasets/1, pričom 1 je číslo datasetu.<br><br></p>
+
+  <p>Rozhranie pre <span class="caps">API</span> metódy je na adrese: /api/[metóda]?api_key=[váš kľúč] a ďalšie parametre.<br><br></p>
+
+  <p>Na stiahnutie popisu datasetu vo formáte <span class="caps">XML</span> a iných slúži metóda dataset_description s parametrom dataset_id. Príklad: /api/dataset_description?api_key=123&amp;dataset_id=1<br><br></p>
+
+  <p>Na stiahnutie celého datasetu, slúži metóda dataset_dump s parametrom dataset_id. Príklad: /api/dataset_dump?api_key=123&amp;dataset_id=1<br><br></p>
+
+  <p>Pre stiahnutie záznamu vo formáte <span class="caps">XML</span> a iných slúži metóda record s parametrami dataset_id a record_id. Príklad: /api/record.xml?api_key=123&amp;dataset_id=1&amp;record_id=1<br><br></p>
+
+  <h3><strong>Funkcionalita na manuálny prístup k dátam</strong><br><br></h3>
+
+  <p>- Stiahnuť dataset (<span class="caps">CSV</span>) – stiahne obsah datasetu vo formáte <span class="caps">CSV</span><br><br></p>
+  <p>- Stiahnuť dáta o vzťahoch (<span class="caps">XML</span>) – stiahne zoznam relácií v datasete vo formáte <span class="caps">XML</span><br><br></p>
+  <p>- Stiahnuť iba zmeny (<span class="caps">XML</span>) – stiahne zoznam zmien v datasete vo formáte <span class="caps">XML</span><br><br></p>
+  <p>- Stiahnuť popis datasetu (<span class="caps">XML</span>) – stiahne informácie o datasete a štruktúru tabuľky vo formáte <span class="caps">XML</span></p>
+</div>
