@@ -514,8 +514,17 @@ ul#navigation-breadcrumb a:hover {
     margin: 10px 0 0 0;
     padding: 20px 25px;
     position: relative;
+    font-size: 14px;
+    line-height: 18px;
     /* overflow: hidden; */
 }
+
+#searchline-info-container h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
 #searchline-info-container img.searchbox-adv-arrow {
     position: absolute;
     top: -10px;
@@ -526,6 +535,9 @@ ul#navigation-breadcrumb a:hover {
   margin-bottom: 1em;
 }
 
+ #searchline-info-container a {
+  color: #333333;
+}
 
 
 /********** Footer **********/
