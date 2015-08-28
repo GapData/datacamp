@@ -27,8 +27,8 @@
     #searchbox3.searchbox-wrap
       = t('search_help_html')
 
-  %ul#news
-    %li=link_to t('news.title'), news_index_path, class: 'link-to-news'
-    %li /&nbsp;
-    %li= @news.text.to_s.html_safe if @news
+  -# %ul#news
+  -#   %li=link_to t('news.title'), news_index_path, class: 'link-to-news'
+  -#   %li /&nbsp;
+  -#   %li= @news.text.to_s.html_safe if @news
 
