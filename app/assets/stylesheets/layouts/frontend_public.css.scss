@@ -1035,8 +1035,7 @@ ul#news a:hover {
     padding: 0;
     width: 26px;
     display: inline-block;
-    position: relative;
-    top: 9px;
+    vertical-align: middle;
 }
 #pagination .next_page {
     background: #e6e6e6 url(image-path('pagination-next.png')) no-repeat center center;
@@ -1046,8 +1045,7 @@ ul#news a:hover {
     padding: 0;
     width: 26px;
     display: inline-block;
-    position: relative;
-    top: 9px;
+    vertical-align: middle;
 }
 #pagination select {
     background: #e6e6e6 url(image-path('select-arrows.png')) no-repeat right center;
@@ -1071,12 +1069,6 @@ ul#news a:hover {
     background: #F79C60 url(image-path('select-arrows-white.png')) no-repeat right center;
     color: #ffffff;
 }
-
-#pagination .admin-filters {
-  position: relative;
-  top: 9px;
-}
-
 
 
 
