@@ -38,6 +38,7 @@ en:
         edit_my_profile: Edit my profile
         create_new_password: Create new password
         change_password: Change your password
+        about: About user
     rights: 
         data_management: Data Management
         data_dictionary: Data Dictionary
