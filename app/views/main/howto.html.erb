@@ -15,7 +15,7 @@
     </div>
     <div class="box one">
       <h3>Ako Datanest najlepšie využiť?</h3>
-      <p>Cez fulltextové vyhľadávanie. Nebojte sa použiť operátory a filtre v&nbsp;rožírenom vyhľadávani podobné tým, ktoré poznáte z&nbsp;MS&nbsp;Excel. <a href="">Ako funguje vyhľadávanie?</a></p>
+      <p>Cez fulltextové vyhľadávanie. Nebojte sa použiť operátory a filtre v&nbsp;rožírenom vyhľadávani podobné tým, ktoré poznáte z&nbsp;MS&nbsp;Excel. <a href="#" onclick="$('#searchline-container .info').click();">Ako funguje vyhľadávanie?</a></p>
       <p>S&nbsp;datasetmi nemusíte pracovať priamo na stránke. Ak by ste ich radšej analyzovali v&nbsp;tabuľkovom editore alebo v&nbsp;inej aplikácii, môžete si ich jednoducho stiahnuť vo&nbsp;formáte CSV (otvoríte napr. v&nbsp;Exceli). Datasety, ktoré sú k&nbsp;dispozícii na stiahnutie, sú v Katalógu údajov označené šípkou nadol. Stiahnuť ich je možné kliknutím na šípku alebo na tlačidlo “Stiahnuť dataset” v&nbsp;detaile datasetu.</p>
       Programátori si môžu dáta sťahovať automatizovane cez jednoduché API prostredníctvom kľúča, ktorý získa každý zaregistrovaný používateľ.
     </div>
@@ -30,19 +30,19 @@
     </div>
     <div class="box four">
       <h3>Licencie</h3>
-      Dáta z Datanestu poskytujeme na ďalšie použitie pod tzv. verejnou licenciou&nbsp;– čiže v&nbsp;princípe bezplatne na akékoľvek použitie, ak dodržíte tri základné podmienky: uvediete autorstvo Aliancie Fair-play, použijete dáta v&nbsp;súlade <a href="" target="_blank">s&nbsp;misiou projektu</a> a budete váš výsledný produkt licencovať rovnako. Viac o&nbsp;licencovaní si prečítate <a href="/pages/copyright" target="_blank">na stránke o&nbsp;autorských právach</a>.
+      Dáta z Datanestu poskytujeme na ďalšie použitie pod tzv. verejnou licenciou&nbsp;– čiže v&nbsp;princípe bezplatne na akékoľvek použitie, ak dodržíte tri základné podmienky: uvediete autorstvo Aliancie Fair-play, použijete dáta v&nbsp;súlade s&nbsp;<%= link_to 'misiou projektu', page_path('about_service'), target: '_blank' %> a budete váš výsledný produkt licencovať rovnako. Viac o&nbsp;licencovaní si prečítate <%= link_to 'na stránke o autorských právach', page_path('copyright'), target: '_blank' %>.
     </div>
     <div class="box five">
       <h3>Načo je Datanest užitočný?</h3>
       <p>Dáta z&nbsp;Datanestu používame pri príprave analytických a investigatávnych materiálov.</p>
       <p>V&nbsp;blogu o&nbsp;tom, že <a href="https://dennikn.sk/blog/sirokemu-sa-uz-rozpada-aj-plastika-nestacila-ani-pomoc-od-statu/" target="_blank">Širokého spoločnosť Plastika získava dotácie</a> aj napriek zlým hospodárskym výsledkom.</p>
       <p>V&nbsp;blogu <a href="http://fairplay.blog.sme.sk/c/368963/o-peniazoch-pre-obce-rozhoduju-aj-stranicke-knizky.html" target="_blank">O&nbsp;peniazoch pre obce rozhodujú aj stranícke knižky</a> seme spájali dáta o&nbsp;dotáciách s&nbsp;dátami o&nbsp;funkčných obdobiach a straníckej príslušnosti starostov.</p>
-      V blogoch o&nbsp;úspešnosti firiem známych oligarchov <a href="http://fairplay.blog.sme.sk/c/362438/ako-sa-darilo-sirokeho-firmam-v-tendroch-za-fica-a-radicovej.html" target="_blank">Širokého</a> a <a href="http://fairplay.blog.sme.sk/c/364635/ako-sa-darilo-poorovym-firmam-v-tendroch-za-fica-a-radicovej.html" traget="_blank">Poóra</a> v&nbsp;získavaní štátnych tendrov sme porovnávali dáta o&nbsp;verejnom obstarávaní s&nbsp;funkčnými obdobiami posledných vlád.
+      V blogoch o&nbsp;úspešnosti firiem známych oligarchov <a href="http://fairplay.blog.sme.sk/c/362438/ako-sa-darilo-sirokeho-firmam-v-tendroch-za-fica-a-radicovej.html" target="_blank">Širokého</a> a <a href="http://fairplay.blog.sme.sk/c/364635/ako-sa-darilo-poorovym-firmam-v-tendroch-za-fica-a-radicovej.html" target="_blank">Poóra</a> v&nbsp;získavaní štátnych tendrov sme porovnávali dáta o&nbsp;verejnom obstarávaní s&nbsp;funkčnými obdobiami posledných vlád.
     </div>
     <div class="box six">
       <h3>Viac info</h3>
-      <p>Pre viac info o poslaní Datanestu si prečítajte sekciu <a href="/pages/about_service" target="_blank">O službe</a>.</p>
-      <p>Pre viac info o pravidlách Datanestu si prečítajte <a href="" target="_blank">Podmienky používania</a>.</p>
+      <p>Pre viac info o poslaní Datanestu si prečítajte sekciu <%= link_to 'O službe', page_path('about_service'), target: '_blank' %>.</p>
+      <p>Pre viac info o pravidlách Datanestu si prečítajte <%= link_to 'Podmienky používania', howto_path, target: '_blank' %>.</p>
       <h3>Súvisiace projekty</h3>
       Pozrite si aj naše webstránky <a href="http://www.znasichdani.sk/" target="_blank">ZNašichDaní.sk</a> a <a href="http://www.otvorenezmluvy.sk/" target="_blank">OtvorenéZmluvy.sk</a>.
     </div>
