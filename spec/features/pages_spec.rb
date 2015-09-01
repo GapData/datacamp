@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Pages' do
-  it 'user can see a home page with news' do
+  pending 'user can see a home page with news' do
     FactoryGirl.create(:news, text: 'finance stuffs')
 
     visit root_path(locale: :en)
