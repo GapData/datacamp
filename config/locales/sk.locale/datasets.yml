@@ -2,7 +2,10 @@ sk:
   datasets:
     search_status:
       sphinx_single_negative_search: "Požiadavku nie je možné spracovať, keďže obsahuje iba špecfikácie 'neobsahuje'. Pridajte jednu z pozitívnych špecifikácií aby sme mohli zobraziť výsledky."
-      active_search: "Záznamy sú filtrované %{predicates} podmienkami"
+      active_search:
+        one: "Záznamy sú filtrované %{count} podmienkou"
+        few: "Záznamy sú filtrované %{count} podmienkami"
+        other: "Záznamy sú filtrované %{count} podmienkami"
 
 
   dataset:
@@ -33,7 +36,7 @@ sk:
     description_updated: "popis súbora údajov bol aktualizovaný"
     descriptions: "Popisy súborov údajov"
     edit_description: "Upraviť popis"
-    edit_search: "Upraviť filter"
+    edit_search: Upraviť zadanie
     field_description: Položieka
     field_descriptions: "Popisy položiek"
     fields: Položky
@@ -76,7 +79,7 @@ sk:
     type: Typ
     uninitialized_datasets: "Neinicialozované súbory údajov"
     visibility_settings: "Nastavenia zobrazenia"
-    csv_export: 'Obsah CSV'
-    description_xml: 'Popis XML'
-    changes_xml: 'Zmeny XML'
-    relations_xml: 'Relácie XML'
+    csv_export: 'Stiahnuť dataset (CSV)'
+    description_xml: 'Stiahnuť popis datasetu (XML)'
+    changes_xml: 'Stiahnuť iba zmeny (XML)'
+    relations_xml: 'Stiahnuť dáta o vzťahoch (XML)'

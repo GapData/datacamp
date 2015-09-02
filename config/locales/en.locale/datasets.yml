@@ -2,7 +2,10 @@ en:
   datasets:
     search_status:
       sphinx_single_negative_search: "The search cannot be performed since it contains only 'does not contain' specifications. Please add at least one non-'does not contain' specification."
-      active_search: "Results are currently filtered by an active search with %{predicates} conditions."
+      active_search:
+        one: "Results are currently filtered by an active search with %{count} condition."
+        other: "Results are currently filtered by an active search with %{count} conditions."
+
 
   dataset:
     relations: 'Relations' 
@@ -78,5 +81,7 @@ en:
     edit_search: Edit search
     data: Data
     meta_information: Meta information
-    csv_export: CSV
-    description_xml: XML
+    csv_export: Download dataset (CSV)
+    description_xml: Download data description (XML)
+    relations_xml: Download data relations (XML)
+    changes_xml: Download changes (XML)

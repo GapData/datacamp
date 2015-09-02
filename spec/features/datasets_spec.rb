@@ -22,7 +22,7 @@ describe 'Datasets' do
     it 'is able to display also datasets with bad quality' do
       visit datasets_path(locale: :en)
 
-      click_link 'Show all datasets'
+      click_link 'All datasets'
 
       page.should have_content 'lists'
 
@@ -55,33 +55,30 @@ describe 'Datasets' do
       page_should_not_have_content_with 'Ann', 'Brutal', 'Young', 'From city'
 
       within("#kernel_ds_doctor_#{record_1.id}") do
-        click_link 'View'
+        click_link 'View', match: :first
       end
 
       page_should_have_content_with 'John', 'Young', 'Unclear'
       page_should_not_have_content_with 'Smith'
 
       # metadata
-      page.should have_content 'published'
+      page.should have_content 'Published'
     end
 
-    it 'is able to sort records by column' do
+    it 'is able to sort records by column with pagination' do
       FactoryGirl.create(:field_description, en_title: 'First name', identifier: 'first_name', dataset_description: quality_dataset)
 
-      record_1 = quality_dataset.dataset_model.create!(first_name: 'John', record_status: Dataset::RecordStatus.find(:published))
-      record_2 = quality_dataset.dataset_model.create!(first_name: 'Ann', record_status: Dataset::RecordStatus.find(:published))
+      100.times do |index|
+        quality_dataset.dataset_model.create!(:first_name => "Xavier#{index}", record_status: Dataset::RecordStatus.find(:published))
+      end
 
       visit dataset_path(id: quality_dataset, locale: :en)
 
-      record_1.first_name.should appear_before(record_2.first_name)
+      click_link 'First name'
+      page.should have_content 'Xavier1'
 
       click_link 'First name'
-
-      record_2.first_name.should appear_before(record_1.first_name)
-
-      click_link 'First name'
-
-      record_1.first_name.should appear_before(record_2.first_name)
+      page.should have_content 'Xavier99'
     end
   end
 
@@ -101,23 +98,16 @@ describe 'Datasets' do
 
       page_should_have_content_with 'John', 'Ann'
 
-      within('.top_pagination') do
-        select 'Loaded', from: 'filters_record_status'
-      end
+      select 'Loaded', from: 'filters_record_status', match: :first
 
       page.should have_content 'Ann'
       page.should_not have_content 'John'
 
-      within('.top_pagination') do
-        select '- All -', from: 'filters_record_status'
-      end
-      page.should have_content '(2)'
+      select '- All -', from: 'filters_record_status', match: :first
+      page.should have_content 'John'
+      page.should have_content 'Ann'
 
-      within('.top_pagination') do
-        select 'Unclear', from: 'filters_quality_status'
-      end
-      page.should have_content '(1)'
-
+      select 'Unclear', from: 'filters_quality_status', match: :first
       page.should have_content 'John'
       page.should_not have_content 'Ann'
     end
@@ -161,7 +151,7 @@ describe 'Datasets' do
       record_2.reload.record_status.should eq 'new'
       record_3.reload.record_status.should eq 'new'
 
-      click_link 'select_all'
+      check 'select_all_records'
       page.should have_select 'quality'
       select 'OK', from: 'quality'
 

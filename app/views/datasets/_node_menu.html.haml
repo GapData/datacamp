@@ -1,29 +1,35 @@
-#dataset_menu
-  %ul.tabs
-    %li= link_to t("global.data"), '#data', class: 'js_dataset_detail_data_button'
-    %li= link_to t("global.information"), '#information', class: 'js_dataset_detail_information_button'
-    %li= link_to t("global.comments"), '#comments', class: 'js_dataset_detail_comments_button'
-    - if logged_in?
+- if @dataset_description.api_allowed?
+  #dataset_menu
+    %ul.tabs
       %li.navigation
-        = link_to( t('dataset.relations_xml'), |
-                      url_for(controller: :api, |
-                              action: :dataset_relations, |
-                              api_key: @current_user.api_key.key, |
-                              dataset_id: @dataset_description.id, |
-                              format: :xml), |
-                      rel: 'download-relations', id: 'dataset_relations_xml', class: 'navigation js_download_relations', data:{ tracking_dataset_id: @dataset_description.identifier})
-        = link_to( t('dataset.changes_xml'), |
-                      url_for( controller: :api, |
-                              action: :dataset_changes, |
-                              api_key:  @current_user.api_key.key, |
-                              dataset_id: @dataset_description.id, |
-                              format: :xml), |
-                      rel: 'download-changes', id: 'dataset_changes_in_xml', class: 'navigation js_download_changes', data:{ tracking_dataset_id: @dataset_description.identifier})
-        %a{href: url_for(:controller => :api, :action => :dataset_records,  |
-                              :api_key => @current_user.api_key.key, |
-                              :dataset_id => @dataset_description.id),
-           class: 'navigation js_download_csv', id: 'dataset_records_in_csv', data:{ 'tracking-dataset-id' => @dataset_description.identifier}}= t("dataset.csv_export")
-        %a{href: url_for(:controller => :api, :action => :dataset_description,  |
-                              :api_key => @current_user.api_key.key, |
-                              :dataset_id => @dataset_description.id),
-           id: 'dataset_description_in_xml', class: 'navigation js_download_description', data:{ 'tracking-dataset-id' => @dataset_description.identifier}}= t("dataset.description_xml")
+        - dataset_path = url_for(:controller => :api, :action => :dataset_records, :dataset_id => @dataset_description.id)
+        %a{href: dataset_path, class: 'navigation js_download_csv', id: 'dataset_records_in_csv',
+          data:{ 'tracking-dataset-id' => @dataset_description.identifier, show_license: true, license_for: @dataset_description.title, dataset_url: dataset_path}}= t("dataset.csv_export")
+
+      - if logged_in?
+        - if @dataset_description.has_relations?
+          %li.navigation
+            = link_to( t('dataset.relations_xml'), |
+                          url_for(controller: :api, |
+                                  action: :dataset_relations, |
+                                  api_key: @current_user.api_key.key, |
+                                  dataset_id: @dataset_description.id, |
+                                  format: :xml), |
+                          rel: 'download-relations', id: 'dataset_relations_xml', class: 'navigation js_download_relations', data:{ tracking_dataset_id: @dataset_description.identifier})
+
+        - if @dataset_description.has_changes?
+          %li.navigation
+            = link_to( t('dataset.changes_xml'), |
+                          url_for( controller: :api, |
+                                  action: :dataset_changes, |
+                                  api_key:  @current_user.api_key.key, |
+                                  dataset_id: @dataset_description.id, |
+                                  format: :xml), |
+                          rel: 'download-changes', id: 'dataset_changes_in_xml', class: 'navigation js_download_changes', data:{ tracking_dataset_id: @dataset_description.identifier})
+
+      - if logged_in?
+        %li.navigation
+          %a{href: url_for(:controller => :api, :action => :dataset_description,  |
+                                :api_key => @current_user.api_key.key, |
+                                :dataset_id => @dataset_description.id),
+            id: 'dataset_description_in_xml', class: 'navigation js_download_description', data:{ 'tracking-dataset-id' => @dataset_description.identifier}}= t("dataset.description_xml")

@@ -89,9 +89,8 @@ $(document).ready(function(){
     show_batch_box(true);
   });
   
-  $("a.select_all").click(function(){
-    var count = $("input.record[type=checkbox]:checked").length;
-    if(count>0)
+  $("#select_all_records").click(function(e){
+    if(! $(this).is(":checked"))
     {
       $("input.record[type=checkbox]").attr('checked', false);
     }
@@ -100,7 +99,7 @@ $(document).ready(function(){
       $("input.record[type=checkbox]").attr('checked', true);
     };
     show_batch_box(true);
-    return false;
+    e.stopPropagation();
   });
   
   $("a.batch_cancel").click(function(){

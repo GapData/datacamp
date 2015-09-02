@@ -55,32 +55,5 @@ describe 'Api' do
       content_type.should be_xml
       page_should_have_content_with 'Peter', 'Daniel'
     end
-
-    it 'is able to regenerate api key' do
-      visit account_path(locale: :en)
-
-      click_link 'Create new API key'
-
-      admin_user.api_keys.should have(2).records
-    end
-  end
-
-  context 'user with restricted api level' do
-    before(:each) do
-      FactoryGirl.create(:user, api_access_level: Api::RESTRICTED)
-
-      login_as(FactoryGirl.create(:user))
-    end
-
-    it 'is not able to download dataset records in csv', use_dump: true do
-      export_dump_for_dataset(student_dataset)
-
-      visit dataset_path(id: student_dataset, locale: :en)
-
-      click_link 'dataset_records_in_csv'
-
-      status_code.should eq 401
-      page.should have_content 'You do not have sufficient privileges'
-    end
   end
 end

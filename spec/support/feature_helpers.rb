@@ -88,6 +88,7 @@ RSpec.configure do |config|
   config.before(:each) do
     if RSpec.current_example.metadata[:type] == :feature
       create_index_page
+      FactoryGirl.create(:news, published: true)
     end
   end
 end

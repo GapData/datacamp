@@ -8,15 +8,18 @@ Datacamp::Application.routes.draw do
     end
   end
 
-  match '/locale/:locale' =>  'main#locale', :as => 'set_locale'
-
   match '/logout' => 'sessions#destroy', :as => :logout
   match '/login' => 'sessions#new', :as => :login
   match '/register' => 'sessions#create'
   match '/signup' => 'sessions#new'
 
+  match '/how-to' => 'main#howto', :as => :howto
+  match '/pages/api-access' => 'main#api_access'
+
 
   scope "(:locale)", :locale => /sk|en/ do
+
+    resources :errors
 
     # Settings backend
     namespace :settings do
@@ -30,7 +33,6 @@ Datacamp::Application.routes.draw do
           put :restore
         end
       end
-      resources :comments, only: [:index, :edit, :update, :destroy]
       resources :system_variables, only: :index do
         put :update_all, on: :collection
       end
@@ -44,13 +46,6 @@ Datacamp::Application.routes.draw do
       resources :blocks
     end
 
-    resources :comments, only: [:new, :create] do
-      member do
-        get :rate, :report
-        post :report
-      end
-    end
-
     resources :news, only: [:index, :show]
     ##################
 
@@ -58,14 +53,11 @@ Datacamp::Application.routes.draw do
     resources :searches, only: [:new, :create, :show] do
       collection do
         post :quick
+        get :quick
         get :predicate_rows
       end
     end
 
-
-
-
-    resources :watchers
     resources :activities, only: [:index, :show]
 
     resources :data_repairs do
@@ -93,9 +85,7 @@ Datacamp::Application.routes.draw do
 
     resource :session
 
-    resources :favorites do
-      get :create, :on => :collection
-    end
+    resources :favorites
 
     resources :datasets do
       get :search, :on => :collection

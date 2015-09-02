@@ -6,6 +6,7 @@ en:
       active: active
       add_to_favorites_hint: Is this page interesting?
       add_to_favorites: Add to favorites
+      simple_search: Simple search
       advanced_search: Advanced search
       all: "- All -"
       back: Back
@@ -15,8 +16,6 @@ en:
       captcha: Captcha
       collapse: Collapse
       collection_mode: Colletion mode
-      comment: Comment
-      comments: Comments
       continue: Continue
       create: Create new
       created_at: Created at
@@ -42,6 +41,7 @@ en:
       inactive: inactive
       information: Information
       is_favorite: Your favorite.
+      jump_to: "Go to page:"
       login: Login
       logout: Logout
       language: Language
@@ -91,4 +91,10 @@ en:
       categories: Categories
       field_description_categories: 'Field desc. categories'
       parsers: 'Parsers'
-      copyright: "2009&ndash;2015 &copy; Fair Play Alliance Beta version 1.0"
+      copyright_html: "2009&ndash;2015 &copy; Fair-Play Alliance"
+      report_error: "Report error"
+      favorites: "Favorite"
+      share: "Share"
+      home: Home
+
+  search_help_html: TODO

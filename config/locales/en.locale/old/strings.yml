@@ -7,7 +7,8 @@ en:
             restricted: Restricted
             regular: Regular
             premium: Premium
-        allowed_for_dataset: Download
+        allowed_for_dataset: Download dataset
+        disallowed_for_dataset: Dataset cannot be downloaded
     blocks_heading: Applications built on Datanest API
     blocks:
         all_blocks: All blocks
@@ -36,35 +37,8 @@ en:
     profile: 
         edit_my_profile: Edit my profile
         create_new_password: Create new password
-    comments:
-        created_notice: 'The comment was created.'
-        created_error_notice: 'An error has occured while creating your comment. Please try again. If the problem persists, please contact the administrator.'
-        "no": "No"
-        "yes": "Yes"
-        neutral: Neutral
-        new: New comment
-        poor: Poor
-        post: Post
-        rating: "%{useful} out of %{total} find this comment useful."
-        record: "Record #%{id}"
-        reply: Reply
-        replying_to: "Replying to comment #%{parent}"
-        report_label: Report a comment
-        report: Report
-        spam_report: Spam
-        staff: Master
-        suspend: Suspend
-        suspended: Comment suspended
-        useful: Useful
-        violation_report: Violation of rules
-        was_useful: Was this comment useful?
-    watchers: 
-        sign_up: Sign-up for updates
-        watcher_list: List of watchers
-        signup: Sign up
-        success: You have signed up for news. We will inform you as soon as possible.
-        organization: Organization
-        email: Email
+        change_password: Change your password
+        about: About user
     rights: 
         data_management: Data Management
         data_dictionary: Data Dictionary
@@ -91,18 +65,19 @@ en:
         valid_from: Valid from
     datasets:
       index:
-        show_bad_quality: 'Show all datasets'
-        show_good_quality: 'Show only good quality datasets'
+        show_bad_quality: 'All datasets'
+        show_good_quality: 'Good quality datasets'
         bad_quality: 'Bad quality'
         good_quality_true: 'Good quality dataset'
         good_quality_false: 'Bad quality dataset'
-      info_container:
-        more_information: 'I want to know more...'
-        last_update: 'Last Update:'
-        published_count: 'Published records:'
-        data_provider: 'Provider'
       similar_datasets:
         header: 'Similar datasets'
+      show:
+        more_information: More information
+        less_information: Less information
+        last_update: 'Last Update:'
+        published_count: 'Published records:'
+        data_provider: 'Provider:'
     favorites: 
         confirm_deletion: Are you sure you want to remove this favorite?
         remove: (remove)
@@ -177,6 +152,7 @@ en:
         no_api_key_for: "%{user} doesn't have any API key yet."
         logged_in: "You was logged in successfuly"
         insufficient_privileges: "You have insufficient privileges to perform action %{action}."
+        login_needed: "You need to log in"
         register: Sign up for account
         registration_complete: "Your account has been created."
         update_successfull: "User data update was successfull."
@@ -194,22 +170,34 @@ en:
         edit_page: Edit
         show_page: Show
         new_page: New page
+        how_to: How to
+        api: API
     search:
         through: "Search through %{dataset}" 
         create_search: "Create your search for %{dataset}"
         searching_wait_notice: Searching ...
-        search_action: Search...
+        search_action: Search
         query_field: "Search:"
         search_term: Term
+        search_placeholder: Search companies, government organisations..
         results_count: "%{count} results for '%{query_string}'"
         categories: Categories
         dataset_name: Dataset
         processing: "Processing your search"
         results: "%{results} results"
         more_results: More results
+        no_results: We are sorry, there are no results for your current search query. Please try to reformulate your query query.
         any_field: Any field
-        showing_first_results: Showing first %{showing_count} of %{all_count}. Please click the More results link to show all.
+        any_dataset: Any dataset
+        enter_query: Enter query
+        showing_first_results:
+            one: Showing %{count} record of %{all_count} in total.
+            other: Showing %{count} records of %{all_count} in total.
         header: 'Advanced search'
+        help: Help text here
+        add_filter: + Add filter
+        search_results: Search results
+        top: To top
     validations:
         blank: can't be blank
     messages:
@@ -238,3 +226,23 @@ en:
       add_failed: 'Adding relation failed.'
       deleted: 'Relation deleted.'
       delete_failed: 'Deleting relation failed.'
+
+    report_error:
+      title: Report error
+      item_name: Line / item title
+      description: Error description
+      send: Report
+      notice: Error report sent
+
+    will_paginate:
+      page_gap: "&hellip;"
+      page_entries_info:
+        multi_page_html: "%{from}&nbsp;-&nbsp;%{to} of %{count}"
+        single_page_html:
+          zero:  "No results found"
+          one:   "1 result"
+          other: "1&nbsp;-&nbsp;%{count} of %{count}"
+
+    accounts:
+      show:
+        api: API key

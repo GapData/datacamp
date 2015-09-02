@@ -21,6 +21,7 @@
 
 class AccountsController < ApplicationController
   before_filter :login_required, :except => [:forgot, :restore, :new, :create]
+  before_filter :authenticate_user!, :only => [:show, :password, :update]
   before_filter :get_account, :only => [:show, :password, :update]
 
   def show
@@ -89,8 +90,6 @@ class AccountsController < ApplicationController
   def get_account
     @account = current_user
     @account.accepts_terms = '1'
-    @comments = Comment.find_include_suspended(:user_id => current_user.id)
-    @favorites = @account.favorites.includes(:dataset_description, :record)
     # FIXME: This might get slow with many favorites. Favorites tab should be loaded
     # with Ajax after clicking it.
   end

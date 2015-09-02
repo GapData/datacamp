@@ -24,7 +24,7 @@ class ApiController < ApplicationController
 
   skip_before_filter :login_required
   around_filter :default_exception_handler
-  before_filter :authorize_api_key
+  before_filter :authorize_api_key, except: [:dataset_records]
 
   @@api_version = "100"
 
@@ -217,22 +217,22 @@ class ApiController < ApplicationController
 
 private
   def track_download(action, dataset_identifier)
-    Gabba::Gabba.new(Datacamp::Config.get('google_analytics_code'), 'datanest.fair-play.sk').event('api-download', action, dataset_identifier)
+    Gabba::Gabba.new(ENV['DATANEST_GA_CODE'], 'datanest.fair-play.sk').event('api-download', action, dataset_identifier)
   rescue
     # :)
   end
 
   def error code, info = {}
-    if params[:format] == 'xml'
-      error = @@errors[code.to_sym]
-      if error.nil?
-        error = @@errors[:internal_inconsistency]
-        message = "Unknown error code '#{code}'"
-        code = :internal_inconsistency
-      else
-        message = info[:message].nil? ? error[:message] : info[:message]
-      end
+    error = @@errors[code.to_sym]
+    if error.nil?
+      error = @@errors[:internal_inconsistency]
+      @message = "Unknown error code '#{code}'"
+      code = :internal_inconsistency
+    else
+      @message = info[:message].nil? ? error[:message] : info[:message]
+    end
 
+    if params[:format] == 'xml'
       reply = Hash.new
       reply[:code] = code
       reply[:message] = message if not message.nil?
@@ -245,7 +245,7 @@ private
   end
 
   def dataset_dump_path
-    Datacamp::Config.get(:dataset_dump_path, "#{Rails.root}/tmp")
+    ENV['DATANEST_DUMP_PATH'] || "#{Rails.root}/tmp"
   end
 
   def default_exception_handler
@@ -291,29 +291,6 @@ private
       return false
     end
 
-    if dataset.is_hidden? && !@current_user.has_right?(:view_hidden_datasets)
-      error :access_denied, :message => "Insufficient privileges for dataset with id #{dataset_id}"
-      return false
-    end
-
-    # TODO add checking if user can access datasets
-    unless current_user.api_level > Api::RESTRICTED
-      error :access_denied, :message => "Access denied for this account"
-      return false
-    end
-
-    # TODO add checking if dataset can be accessed
-    unless dataset.api_level > Api::RESTRICTED
-      error :access_denied, :message => "Access denied for this dataset"
-      return false
-    end
-
-    # TODO add checking if dataset is premium
-    if dataset.api_level > current_user.api_level
-      error :access_denied, :message => "Insufficient privileges"
-      return false
-    end
-
-    return dataset
+    dataset
   end
 end

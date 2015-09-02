@@ -12,28 +12,6 @@ sk:
       template: 
         body: "Prosím pozrite si tieto chyby a opravte príslušné polia"
         header: "Uloženiu zabránilo niekoľko chýb"
-  comments: 
-    foo: Anofff
-    neutral: Neutral
-    new: "Nový komentár"
-    ? "no"
-    : Nie
-    poor: Zlé
-    post: Komentár
-    record: "Záznam #%{id}"
-    reply: Odpovedať
-    replying_to: "Odpoveď na komentár #%{parent}"
-    report: Zažalovať
-    report_label: "Zažalovať komentár"
-    spam: Spam
-    staff: Elita
-    suspend: Pozdržať
-    suspended: "Komentár pozdržaný"
-    useful: Užitočný
-    violation: "Porušenie pravidiel"
-    was_useful: "Bol tento komentár užitočný?"
-    ? "yes"
-    : Ano
   dataset: 
     add_field_description: "Pridať popis položky"
     columns_for_import: "Stĺpce pre import"
@@ -128,14 +106,11 @@ sk:
     cancel: Odvolať
     collapse: Zbaliť
     collection_mode: "Spôsob zberu"
-    comment: Komentáre
-    comments: Komentáre
     continue: Pokračovať
     create: "Vytvoriť nové"
     data: Údaje
     data_catalogue: "Katalóg údajov"
     data_dictionary: "Slovník údajov"
-    datasets: "Súbory údajov"
     delete: Vymazať
     delete_confirmation: "Naozaj chcete vymazať túto položku?"
     description: Popis
@@ -153,7 +128,6 @@ sk:
     is_favorite: "Vaše obľúbené."
     login: Prihlásenie
     logout: Odhlásenie
-    metadata: Metadata
     next: Nasledujúce
     other: Ostatné
     previous: Predošlé
@@ -211,7 +185,7 @@ sk:
     dataset_name: "Súbor údajov"
     query_field: "Hľadať:"
     results_count: "%{count} výsledkov pre '%{query_string}'"
-    search_action: Hľadať!
+    search_action: Hľadať
     search_term: Výraz
     searching_notice: "Prosíme o chvíľku strpenia, kým sa prehľadáva naša databáza"
   session: 
@@ -228,10 +202,3 @@ sk:
   users: 
     my_account: "Moje konto"
     user_not_found: "Používateľ nebol nájdený"
-  watchers: 
-    email: E-mail
-    organization: Organizácia
-    sign_up: "Registrovať sa pre oznámenie o novinkách."
-    signup: "Registrovať sa"
-    success: "Budeme vás včas informovať."
-    title: "Zoznam záujemcov."

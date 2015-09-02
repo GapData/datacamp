@@ -2,7 +2,7 @@ module Dataset
   class TableCreator
     attr_reader :dataset_description, :schema_manager, :system_columns, :errors
 
-    def initialize(dataset_description, schema_manager, system_columns = SYSTEM_COLUMNS)
+    def initialize(dataset_description, schema_manager, system_columns)
       @dataset_description = dataset_description
       @schema_manager = schema_manager
       @system_columns = system_columns

@@ -11,7 +11,7 @@ Datacamp::Application.configure do
   config.whiny_nils = true
 
   # Show full error reports and disable caching
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
@@ -25,7 +25,7 @@ Datacamp::Application.configure do
 
   config.logger = Logger.new(Rails.root.join("log",Rails.env + ".log"),3,5*1024*1024)
 
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :host => "localhost", :port => 1025 }
   config.admin_emails = 'admin@fair-play.sk'
 
@@ -34,6 +34,6 @@ Datacamp::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 end
 

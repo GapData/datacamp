@@ -5,7 +5,7 @@ class DatastoreStatesController < ApplicationController
   protect_from_forgery
 
   def show
-    @datastore_state = Dataset::DatastoreState.new(dataset_description)
+    @datastore_state = Dataset::DatastoreState.new(dataset_description, Dataset::SYSTEM_COLUMNS)
   end
 
   def create_column_description
@@ -15,7 +15,7 @@ class DatastoreStatesController < ApplicationController
       raise ActiveRecord::RecordNotFound, "column: #{params[:column]} nod found in database table"
     end
 
-    Dataset::DescriptionCreator.create_description_for_column(dataset_description, column)
+    Dataset::DescriptionCreator.create_description_for_column(dataset_description, column, Dataset::COLUMN_TYPES)
 
     # FIXME: LOCALIZE: dataset.column_created_message
     flash[:notice] = "Created description for column #{column.name}"

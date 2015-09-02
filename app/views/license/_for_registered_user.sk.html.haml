@@ -1,0 +1,22 @@
+#pop-up-window{style: 'display: none'}
+  .wrap
+    %a.abort{href: '#', data: {show_license_abort: true}}
+    %h1
+      Chystáte sa stiahnuť si dataset
+      %h1.dataset-name{'data-license-var-dataset': ''}
+    %p Dataset sa stiahne vo <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">formáte CSV</a>, otvoríte ho napríklad v Exceli.
+    %p
+      Pri použití dát, prosím, dbajte na
+      =link_to 'licenčné podmienky', page_path('copyright')
+      a
+      =link_to 'podmienky používania.', page_path('terms_of_service')
+    %p
+      Dáta môžete sťahovať, upravovať a ďalej akokoľvek komerčne aj nekomerčne
+      používať. Vždy však uvádzajte zdroj dát – Datanest Aliancie Fair-play - a
+      dajte nám, prosím, vedieť na <a href="mailto:datanest@fair-play.sk">datanest@fair-play.sk</a>, či boli pre vás dáta
+      užitočné, prípadne ako ste ich použili.
+  .wrap-send
+    %a.button-send{href: '#', 'data-license-var-url': '', 'data-license-accept': ''}
+      OK
+  .wrap-nodisplay
+    %input{type: :checkbox, 'data-license-dont-show-again': ''} V budúcnosti už nezobrazovať toto okno

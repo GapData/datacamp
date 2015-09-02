@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :access_rights, :join_table => :user_access_rights
   has_and_belongs_to_many :access_roles, :join_table => :user_access_roles
 
-  has_many :comments
   has_many :favorites
 
   has_many :sessions
@@ -110,14 +109,6 @@ class User < ActiveRecord::Base
 
   def to_s
     name.empty? ? login : name
-  end
-
-  #############################################################################
-  # Reload score
-  def reload_score
-    self.score = comments.map(&:score).sum
-
-    save!(validate: false)
   end
 
   #############################################################################

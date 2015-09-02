@@ -29,10 +29,9 @@ class ApplicationController < ActionController::Base
   end
 
   helper :all
-  layout "frontend_main"
+  layout "frontend_public"
 
   def default_url_options(options={})
-    logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { locale: I18n.locale != :sk ? I18n.locale : nil }
   end
 
@@ -78,7 +77,11 @@ private
   end
 
   def verify_captcha_for(model)
-    verify_recaptcha(private_key: Datacamp::Config.get(:captcha_private_key), model: model)
+    verify_recaptcha(private_key: ENV['DATANEST_CAPTCHA_PRIVATE_KEY'], model: model)
+  end
+
+  def authenticate_user!
+    redirect_to login_path, alert: t('users.login_needed') unless logged_in?
   end
 
   protected

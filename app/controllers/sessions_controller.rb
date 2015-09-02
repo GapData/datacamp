@@ -46,7 +46,11 @@ class SessionsController < ApplicationController
       handle_remember_cookie! new_cookie_flag
       flash[:notice] = t("users.logged_in")
       flash[:user_signed_in] = true
-      return redirect_to page_path(Page.find_by_page_name("index"))
+      if params[:return] && params[:return].starts_with?('/')
+        redirect_to params[:return]
+      else
+        redirect_to  root_path
+      end
     else
       note_failed_signin
       @login       = params[:login]
@@ -58,7 +62,7 @@ class SessionsController < ApplicationController
   def destroy
     logout_killing_session!
     flash[:notice] = "You have been logged out."
-    redirect_to page_path(Page.find_by_page_name("index"))
+    redirect_to :back
   end
 
 protected

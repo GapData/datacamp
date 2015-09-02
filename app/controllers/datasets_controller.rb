@@ -20,7 +20,6 @@
   # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class DatasetsController < ApplicationController
-  include CommentsLoader
 
   before_filter :prepare_filters, :only => [:show, :update]
   privilege_required :edit_record, :only => [:update]
@@ -28,12 +27,17 @@ class DatasetsController < ApplicationController
   helper_method :has_filters?
 
   def index
+    @only_good = params[:only_good]
     respond_to do |wants|
       wants.html do
         @dataset_categories = DatasetCategory.
           order('dataset_categories.position, dataset_descriptions.position').
           includes(:dataset_descriptions => :translations).
           where('dataset_descriptions.is_active = 1')
+
+        if @only_good
+          @dataset_categories.where('dataset_description.bad_quality = false')
+        end
       end
       wants.xml { render :xml => DatasetDescription.active }
     end
@@ -55,9 +59,6 @@ class DatasetsController < ApplicationController
       return redirect_to datasets_path
     end
 
-    # Comments
-    load_comments
-
     # Favorite if there's one
     @favorite = current_user.favorite_for!(@dataset_description, @record) if current_user
 
@@ -65,7 +66,7 @@ class DatasetsController < ApplicationController
     paginate_options = {max_matches: 10_000}
     params[:page] = nil if params[:page].blank?
     paginate_options[:page] = params[:page] if params[:page]#? params[:page] : nil
-    paginate_options[:per_page] = current_user ? current_user.records_per_page : RECORDS_PER_PAGE
+    paginate_options[:per_page] = current_user ? current_user.records_per_page : params[:records_per_page] || RECORDS_PER_PAGE
     # paginate_options[:total_entries] = ((params[:page].to_i||1)+9) * paginate_options[:per_page]
 
     # check if sort is valid
@@ -96,7 +97,7 @@ class DatasetsController < ApplicationController
       sort_direction = sanitize_sort_direction(params[:dir])
       if params[:sort] && params[:page]
         # This ugly thing is here because mysql is lame and doesn't use indexes when there is just an order and a limit on the select (pagination with ordering)...
-        total_pages = @dataset_class.count.to_i
+        total_entries = @dataset_class.count
         page = params[:page].to_i
         per_page = paginate_options[:per_page].to_i
 
@@ -115,10 +116,12 @@ class DatasetsController < ApplicationController
             end
           end
         end
-        @records.define_singleton_method(:total_pages) { (total_pages/per_page.to_f).ceil }
-        @records.define_singleton_method(:current_page) { page }
-        @records.define_singleton_method(:previous_page) { page > 1 ? (page - 1) : nil }
-        @records.define_singleton_method(:next_page) { page < total_pages ? (page + 1) : nil }
+
+        records = @records
+        @records = WillPaginate::Collection.create(page, per_page, total_entries) do |pager|
+          pager.replace(records)
+        end
+
       else
         if params[:sort]
           @dataset_class = @dataset_class.order("`#{sanitize_sort_column(params[:sort], @sortable_columns)}` #{sort_direction}")
@@ -159,10 +162,11 @@ class DatasetsController < ApplicationController
 
   def show_search_results_for_dataset(paginate_options, sphinx_search)
     sphinx_search = {options: paginate_options, query: sphinx_search}
-    search = Search.find(params[:search_id])
-    sphinx_search = @dataset_description.build_sphinx_search(search, sphinx_search) # TODO: move to SearchEngine
+    @search = Search.find(params[:search_id])
+    sphinx_search = @dataset_description.build_sphinx_search(@search, sphinx_search) # TODO: move to SearchEngine
     sphinx_search[:options].merge!(populate: true, :conditions => { record_status: Dataset::RecordStatus.find(:published)})
     @records = @dataset_class.search(sphinx_search[:query], sphinx_search[:options])
+    @query_string = @search.query_string
   end
 
   # Batch update

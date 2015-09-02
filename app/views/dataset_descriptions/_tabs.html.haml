@@ -7,4 +7,4 @@
   %li{:class => params[:action]=="import_settings" ? "active" : nil}
     %a{:href => import_settings_dataset_description_path(@dataset_description)}= t("dataset.columns_for_import")
   %li{:class => params[:action]=="datastore_status" ? "active" : nil}
-    %a{:href => datastore_status_dataset_description_path(@dataset_description)}= t("dataset.datastore_status")
+    %a{:href => dataset_description_datastore_states_path(dataset_description_id: @dataset_description)}= t("dataset.datastore_status")

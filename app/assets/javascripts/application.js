@@ -28,3 +28,6 @@
 //= require datasets/search
 //= require ga_tracker
 //= require banners
+//= require searchbox-tabs
+//= require show_license
+//= require error_reporting

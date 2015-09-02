@@ -9,7 +9,7 @@ class SiteMapGenerator
 
   # first run generator
   def self.generate_all_files
-    Dir.rmdir(sitemaps_dir) unless File.exists?(sitemaps_dir)
+    Dir.rmdir(sitemaps_dir) if File.exists?(sitemaps_dir)
     FileUtils.rm_rf Dir.glob("#{sitemaps_dir}/*") if File.exists?(sitemaps_dir)
     LOCALES.each_pair do |locale, locale_path|
       generator = Generator.new(locale, locale_path)
@@ -204,7 +204,9 @@ class SiteMapGenerator
     end
 
     def init_site_map_file(file)
-      File.open(site_map_urls_file(file), 'wb:UTF-8')
+      urls_file = site_map_urls_file(file)
+      FileUtils.mkdir_p(File.dirname(urls_file))
+      File.open(urls_file, 'wb:UTF-8')
     end
 
     def url_for(path)

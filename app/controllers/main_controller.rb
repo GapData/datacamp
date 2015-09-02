@@ -20,17 +20,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class MainController < ApplicationController
-  layout "frontend_main"
-
-  before_filter :login_required, :except => [:index, :locale]
-
   def index
-    redirect_to page_path('index')
+    @news = News.published.first
   end
 
-  def locale
-    target = (request.referer && !request.referer.empty?) ? request.referer : root_path
-    I18n.locale = params[:locale] if params[:locale].present?
-    redirect_to root_url(locale: I18n.locale == :sk ? nil : I18n.locale)
+  def howto
+  end
+
+  def api_access
   end
 end

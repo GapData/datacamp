@@ -2,7 +2,7 @@ module Dataset
   class TableTransformer
     attr_reader :schema_manager, :system_columns, :errors
 
-    def initialize(schema_manager, system_columns = SYSTEM_COLUMNS)
+    def initialize(schema_manager, system_columns)
       @schema_manager = schema_manager
       @system_columns = system_columns
     end

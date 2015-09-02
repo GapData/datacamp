@@ -5,6 +5,7 @@ sk:
     active: Aktívne
     add_to_favorites: "Pridať k obľúbeným"
     add_to_favorites_hint: "Je táto stránka zaujimavá?"
+    simple_search: "Jednoduché vyhľadávanie"
     advanced_search: "Pokročilé vyhľadávanie"
     all: "- Všetko -"
     back: Naspäť
@@ -16,8 +17,6 @@ sk:
     captcha: Kontrola
     collapse: Zbaliť
     collection_mode: "Spôsob zberu"
-    comment: Komentáre
-    comments: Komentáre
     continue: Pokračovať
     create: "Vytvoriť nové"
     created_at: Vytvorené
@@ -26,7 +25,7 @@ sk:
     data_dictionary: "Slovník údajov"
     dataset: "Súbor údajov"
     dataset_descriptions: "Popisy súborov údajov"
-    datasets: "Súbory údajov"
+    datasets: "Katalóg údajov"
     delete: Vymazať
     delete_confirmation: "Naozaj chcete vymazať túto položku?"
     description: Popis
@@ -43,11 +42,12 @@ sk:
     inactive: Neaktívne
     information: Informácie
     is_favorite: "Vaše obľúbené."
+    jump_to: "Prejsť na stranu:"
     language: Jazyk
     load_error: "Nie je možné načítať %{what}"
     login: Prihlásenie
     logout: Odhlásenie
-    metadata: Metadata
+    metadata: Metadáta
     moderation: Moderácia
     move: presunúť
     name: Meno
@@ -90,4 +90,14 @@ sk:
     users: Používatelia
     value: Hodnota
     parsers: 'Parsery'
-    copyright: "2009&ndash;2015 &copy; Aliancia Fair-Play Beta verzia 1.0"
+    copyright_html: "2009&ndash;2015 &copy; Aliancia Fair-Play"
+    report_error: "Upozorniť admina na chybu"
+    favorite: "Obľúbené"
+    share: "Zdieľať"
+    home: Domov
+
+  search_help_html: |
+    <h3>Ako funguje vyhľadávanie</h3>
+    <p>Na Dataneste môžete hľadať firmy, osoby, názvy zákazok, projektov podporených z dotácií a rôzne iné položky vzťahujúce sa k čerpaniu verejných peňazí.</p>
+    <p>Použiť môžete okrem základného aj rozšírené vyhľadávanie, ktoré umožňuje filtrovanie súčasne podľa viacerých kritérií. Filtrovanie funguje podobne ako v Exceli - filtrovať môžete zadaním názvu datasetu a pridaním filtra v "Pokročilom vyhľadávaní".</p>
+    <p>Skúste zadať: <a href="/searches/quick?query_string=Siemens">Siemens</a>, <a href="/searches/quick?query_string=Granvia">Granvia</a>, <a href="/searches/quick?query_string=Skytoll">Skytoll</a></p>

@@ -1,4 +1,4 @@
-%h1== #{h @account.name} (#{h @account.login})
+%h1= t('profile.about')
 
 = form_for @account, :builder => ListFormBuilder, :url => account_path do |f|
   = f.error_messages

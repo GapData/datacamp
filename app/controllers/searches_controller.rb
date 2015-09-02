@@ -46,13 +46,13 @@ class SearchesController < ApplicationController
 
     dds = dds.where(category_id: params[:category_id]) if params[:category_id] # TODO: test filter by category_id
 
-    descriptions = dds.active
+    descriptions = dds.joins(:category).order('dataset_categories.position, dataset_descriptions.position').active
     datasets = descriptions.map(&:dataset_model)
     searches = SearchEngine.new.search(datasets, @search)
+    @query_string = @search.query_string
 
     @results = {}
     descriptions.includes([
-        :category,
         {:relations => :relationship_dataset_description},
         :derived_field_descriptions,
         :field_descriptions_for_detail,

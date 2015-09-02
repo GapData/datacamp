@@ -8,7 +8,8 @@ sk:
       restricted: Zakázané
       regular: Obyčajné
       premium: Premium
-    allowed_for_dataset: Download
+    allowed_for_dataset: Stiahnuť dataset
+    disallowed_for_dataset: Dataset nie je možné stiahnuť
   blocks_heading: Aplikácie postavené na Dataneste
   blocks:
     all_blocks: Všetky bloky
@@ -26,42 +27,19 @@ sk:
     last_update: Posledná úprava
     edit: Úprava kategórie
     destroy: Zmazať
-  comments:
-    created_notice: 'Komentár vytvorený.'
-    created_error_notice: 'Nastala chyba pri vytváraní komentáru. Skúste prosim znova. Ak tento problém pretrváva, kontaktujte administrátora.'
-    neutral: Neutral
-    new: "Nový komentár"
-    ? "no"
-    : Nie
-    poor: Zlé
-    post: Komentár
-    rating: "%{useful} z %{total} považuje tento komentár za užitočný"
-    record: "Záznam #%{id}"
-    reply: Odpovedať
-    replying_to: "Odpoveď na komentár #%{parent}"
-    report: Zažalovať
-    report_label: "Zažalovať komentár"
-    spam_report: Spam
-    staff: Elita
-    suspend: Pozdržať
-    suspended: "Komentár pozdržaný"
-    useful: Užitočný
-    violation_report: "Porušenie pravidiel"
-    was_useful: "Bol tento komentár užitočný?"
-    ? "yes"
-    : Ano
   datasets:
     index:
-      show_bad_quality: 'Zobraziť všetky datasety'
-      show_good_quality: 'Zobraziť iba pekné datasety'
+      show_bad_quality: 'Všetky datasety'
+      show_good_quality: 'Kvalitné datasety'
       bad_quality: 'Zlá kvalita'
       good_quality_true: 'Kvalitný dataset'
       good_quality_false: 'Nekvalitný dataset'
-    info_container:
-      more_information: 'Chcem vedieť viac...'
+    show:
+      more_information: Zobraziť viac
+      less_information: Zobraziť menej
       last_update: 'Aktualizácia:'
       published_count: 'Publikovaných záznamov:'
-      data_provider: 'Poskytovateľ'
+      data_provider: 'Poskytovateľ:'
     similar_datasets:
       header: 'Podobné datasety'
   favorites: 
@@ -138,6 +116,8 @@ sk:
     edit_page: Upraviť
     show_page: Zobraziť
     new_page: Vytvoriť stránku
+    how_to: Ako používať
+    api: API
   password_reset: 
     body: "Klikni na nasledovný link na vyresetovanie hesla: %{link}"
     restore_account: "Obnoviť účet"
@@ -146,13 +126,16 @@ sk:
   profile: 
     create_new_password: "Vytvoriť nové heslo"
     edit_my_profile: "Editovať môj profil"
+    change_password: Zmeniť heslo
+    about: O používateľovi
   rights: 
     data_dictionary: "Slovník údajov"
     data_editing: "Upravovanie údajov"
     data_management: "Správa údajov"
     user_management: "Správa používateľov"
   search: 
-    any_field: "‹ Akákoľvek položka ›"
+    any_field: Akákoľvek položka
+    any_dataset: Akýkoľvek dataset
     categories: Kategórie
     create_search: "Vytvorte vyhľadávanie pre %{dataset}"
     dataset_name: "Súbor údajov"
@@ -161,12 +144,22 @@ sk:
     query_field: "Hľadať:"
     results: "%{results} výsledkov"
     results_count: "%{count} výsledkov pre '%{query_string}'"
-    search_action: 'Vyhľadávanie...'
+    search_action: 'Hľadať'
+    search_placeholder: "Vyhľadajte firmy, štátne organizácie..."
     search_term: Výraz
     searching_wait_notice: "Vyhľadávam ..."
     through: "Vyhľadávať v %{dataset}"
-    showing_first_results: Zobrazuje prvých %{showing_count} záznamov z %{all_count}. Pokiaľ chcete vidieť všetky kliknite na Viac a podrobnejšie.
+    showing_first_results:
+      one: Zobrazuje sa %{count} záznam z celkového počtu %{all_count}.
+      few: Zobrazujú sa %{count} záznamy z celkového počtu %{all_count}.
+      other: Zobrazuje sa %{count} záznamov z celkového počtu %{all_count}.
     header: 'Rozšírené vyhľadávanie'
+    help: "Tu bude text o vyhladavani"
+    add_filter: + Pridať filter
+    search_results: Výsledky vyhľadávania
+    top: ísť hore
+    no_results: Je nám ľúto, pre hľadaný výraz sme nenašli žiadne výsledky. Skúste ho preformulovať, alebo zadať iný výraz.
+    enter_query: "Zadajte hľadaný výraz"
   session: 
     login: Prihlásenie
     lost_password: "Zabudli ste heslo?"
@@ -201,6 +194,7 @@ sk:
     register: Vytvoriť konto
     registration_complete: "Vaše konto bolo vytvorené."
     insufficient_privileges: "Nemáte právo na vykonanie akcie %{action}."
+    login_needed: "Musíte byť prihlásený"
     agree_with: "Súhlasím s %{s}"
     with_terms_of_use: "podmienkami používania"
     update_successfull: "Aktualizácia údajov používateľa bola úspešná."
@@ -211,13 +205,6 @@ sk:
       code_invalid: 'Obnovovací kód je neplatný.'
   validations: 
     blank: "nemôže byť prázdne"
-  watchers: 
-    email: E-mail
-    organization: Organizácia
-    sign_up: "Registrovať sa pre oznámenie o novinkách."
-    signup: "Registrovať sa"
-    success: "Budeme vás včas informovať."
-    watcher_list: "Zoznam sledujúcich"
   settings:
     users:
       users: Používatelia
@@ -252,3 +239,23 @@ sk:
       no_related_records_lawyers_lawyer_associates: 'Tento advokát nemá žiadnych koncipientov.'
       no_related_records_lawyers_lawyer_partnerships: 'Tento advokát nie je členom advokátskeho spoločenstva.'
 
+  report_error:
+    title: Nahlásiť chybu administrátorovi
+    item_name: Názov riadku / položky
+    description: Popis chyby
+    send: Odoslať
+    notice: Hlásenie o chybe odoslané
+
+  will_paginate:
+    page_gap: "&hellip;"
+    page_entries_info:
+      multi_page_html: "%{from}&nbsp;-&nbsp;%{to} z %{count}"
+      single_page_html:
+        zero:  "Bez výsledkov"
+        one:   "1 výsledok"
+        few: "1&nbsp;-&nbsp;%{count} z %{count}"
+        other: "1&nbsp;-&nbsp;%{count} z %{count}"
+
+  accounts:
+    show:
+      api: API kľúč

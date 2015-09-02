@@ -20,7 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class FavoritesController < ApplicationController
-  before_filter :login_required
+  before_filter :authenticate_user!
   
   def new
     @favorite = Favorite.new
@@ -53,6 +53,10 @@ class FavoritesController < ApplicationController
       wants.html { redirect_to request.referer }
       wants.js { render :action => "create" }
     end
+  end
+
+  def index
+    @favorites = current_user.favorites.includes(:dataset_description, :record)
   end
   
   protected

@@ -20,7 +20,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class RecordsController < ApplicationController
-  include CommentsLoader
   
   before_filter :load_record
   
@@ -42,8 +41,6 @@ class RecordsController < ApplicationController
     end
     
     @related_records_and_fields = related_records_and_fields(@dataset_description, @record)
-
-    load_comments
     
     @favorite = current_user.favorite_for!(@dataset_description, @record) if current_user
 
