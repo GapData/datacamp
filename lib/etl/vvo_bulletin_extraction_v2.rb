@@ -5,6 +5,7 @@ module Etl
     include Etl::Shared::VvoIncludes
 
     attr_reader :document_url, :report_extraction
+    ALL_BULLETINS_URL = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/all"
 
     def initialize(document_url, report_extraction = false)
       @document_url = document_url
@@ -119,7 +120,7 @@ module Etl
     end
 
     def self.all_bulletins_in_year(in_year)
-      document_url = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/all"
+      document_url = ALL_BULLETINS_URL
       document = Nokogiri::HTML(Typhoeus::Request.get(document_url).body)
 
       links = {}
@@ -135,7 +136,7 @@ module Etl
 
       # report
       if links.empty?
-        config.update_report!(:download_bulletins, "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/all") if report_extraction
+        config.update_report!(:download_bulletins, ALL_BULLETINS_URL)
       end
 
       links
