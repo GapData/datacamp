@@ -86,7 +86,7 @@ module Etl
         notice: ["Oznámenia o výsledku verejného obstarávania", "Informácie o uzavretí zmluvy"],
         performance: ["Informácia o plnení zmluvy"]
     }
-    SEARCH_URL = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/searchResult"
+    SEARCH_URL = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/searchResult"
 
     def self.extract_procurements(type, year)
       procurements = []

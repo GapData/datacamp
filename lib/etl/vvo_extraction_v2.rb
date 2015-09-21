@@ -84,7 +84,7 @@ module Etl
     end
 
     def document_url
-      "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}"
+      "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}"
     end
 
     def document
