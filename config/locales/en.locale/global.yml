@@ -92,6 +92,7 @@ en:
       field_description_categories: 'Field desc. categories'
       parsers: 'Parsers'
       copyright_html: "2009&ndash;2015 &copy; Fair-Play Alliance"
+      concept_author_html: 'Project concept author: <a href="http://www.fair-play.sk/abouts/bios/8">Peter Kunder</a>'
       report_error: "Report error"
       favorites: "Favorite"
       share: "Share"

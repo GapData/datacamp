@@ -11,7 +11,7 @@
       %label{for: :page}= t("global.jump_to")
       %input.pagination-text{name: :page, value: params[:page] || 1}
 
-      = page_entries_info @records
+      = page_entries_info_custom @records
       = will_paginate @records, :previous_label => '', :next_label => '', container: false, page_links: false
   - else
     %form.submit_on_change
@@ -21,5 +21,5 @@
       %label{for: :page}= t("global.jump_to")
       %input.pagination-text{name: :page, value: params[:page] || 1}
 
-      = page_entries_info @records
+      = page_entries_info_custom @records
       = will_paginate @records, :previous_label => '', :next_label => '', container: false, page_links: false

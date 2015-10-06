@@ -560,7 +560,7 @@ ul#navigation-links {
 ul#navigation-links li {
     float: left;
     overflow: hidden;
-    padding: 0 5px 0 0;
+    padding: 0 5px;
 }
 ul#navigation-links li::after {
     color: #cccccc;
@@ -573,7 +573,7 @@ ul#navigation-links li.last::after {
 }
 ul#navigation-links a {
     color: #808080;
-    padding:0 0 0 5px;
+    padding:0;
     text-decoration: none;
 }
 ul#navigation-links a:hover {

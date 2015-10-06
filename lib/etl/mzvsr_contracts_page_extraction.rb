@@ -30,7 +30,7 @@ module Etl
     def perform
       if is_acceptable?
         page.detail_urls.each do |uri|
-          Delayed::Job.enqueue(self.class.new(uri))
+          Delayed::Job.enqueue(MzvsrContractExtraction.new(uri))
         end
       end
     end
