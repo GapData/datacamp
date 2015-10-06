@@ -18,15 +18,15 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: datanest_app_development
+  database: datanest2_app
 
 development_data:
   <<: *defaults
-  database: datanest_data_development
+  database: datanest2_data
 
 development_staging:
   <<: *defaults
-  database: datanest_staging_development
+  database: datanest2_staging
 
 staging:
   <<: *defaults

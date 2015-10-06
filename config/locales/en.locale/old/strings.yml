@@ -237,11 +237,11 @@ en:
     will_paginate:
       page_gap: "&hellip;"
       page_entries_info:
-        multi_page_html: "%{from}&nbsp;-&nbsp;%{to} of %{count}"
+        multi_page_html: "%{from_with_delimiter}&nbsp;&ndash;&nbsp;%{to_with_delimiter} of %{count_with_delimiter}"
         single_page_html:
           zero:  "No results found"
           one:   "1 result"
-          other: "1&nbsp;-&nbsp;%{count} of %{count}"
+          other: "1&nbsp;&ndash;&nbsp;%{count} of %{count}"
 
     accounts:
       show:
