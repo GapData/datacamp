@@ -311,7 +311,7 @@ module Etl
     end
 
     def update_document_report(type)
-      update_report_object_depth_2(EtlConfiguration::VVO_V2_KEYS_BY_TYPES[dataset_type], type, document_id, document_url)
+      update_report_object_depth_2(EtlConfiguration::VVO_V2_KEYS_BY_TYPES[dataset_type], type, document_id, document_url) if dataset_type
     end
 
   end
