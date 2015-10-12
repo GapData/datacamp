@@ -15,7 +15,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Wed, 17 Jun 2015 13:46:58 GMT
+      - Mon, 12 Oct 2015 13:47:00 GMT
       Server:
       - Oracle-Application-Server-10g/10.1.3.1.0 Oracle-HTTP-Server
       Transfer-Encoding:
@@ -37,5 +37,5 @@ http_interactions:
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://www.statistics.sk/pls/wregis/detail?wxidorg=0
-  recorded_at: Wed, 17 Jun 2015 13:47:00 GMT
+  recorded_at: Mon, 12 Oct 2015 13:47:05 GMT
 recorded_with: VCR 2.9.3

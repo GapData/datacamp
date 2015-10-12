@@ -15,11 +15,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Jun 2015 13:46:46 GMT
+      - Mon, 12 Oct 2015 13:46:54 GMT
       Server:
       - Apache/2.2.22 (Debian)
       Set-Cookie:
-      - JSESSIONID=5E11E9EDEEECE423C829450FCA562B27; Path=/
+      - JSESSIONID=445E799F2260B3EBD43792AE9D3F45E1; Path=/
       Vary:
       - Accept-Encoding
       Transfer-Encoding:
@@ -185,44 +185,44 @@ http_interactions:
         L3A+DQogIA0KPC9kaXY+DQogICAgICAmbmJzcDsNCiAgICAgIDxocj4NCiAg
         ICAgICANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQo8ZGl2
         IGNsYXNzPSJuYWRwaXMzIj58Jm5ic3A7PGEgaHJlZj0iL3JlZ2lzdHJlL3N0
-        YXJ0LmRvO2pzZXNzaW9uaWQ9NUUxMUU5RURFRUVDRTQyM0M4Mjk0NTBGQ0E1
-        NjJCMjciPkhsYXZuw70gem96bmFtPC9hPg0KfCZuYnNwOzxhIGhyZWY9Ii9y
-        ZWdpc3RyZS9zdGFydHJuZC5kbztqc2Vzc2lvbmlkPTVFMTFFOUVERUVFQ0U0
-        MjNDODI5NDUwRkNBNTYyQjI3Ij7DmnZvZDwvYT4NCiAgDQogICAgDQogICAg
+        YXJ0LmRvO2pzZXNzaW9uaWQ9NDQ1RTc5OUYyMjYwQjNFQkQ0Mzc5MkFFOUQz
+        RjQ1RTEiPkhsYXZuw70gem96bmFtPC9hPg0KfCZuYnNwOzxhIGhyZWY9Ii9y
+        ZWdpc3RyZS9zdGFydHJuZC5kbztqc2Vzc2lvbmlkPTQ0NUU3OTlGMjI2MEIz
+        RUJENDM3OTJBRTlEM0Y0NUUxIj7DmnZvZDwvYT4NCiAgDQogICAgDQogICAg
         ICB8Jm5ic3A7PGEgaHJlZj0iL3JlZ2lzdHJlL3pvem5hbXJuZC5kbztqc2Vz
-        c2lvbmlkPTVFMTFFOUVERUVFQ0U0MjNDODI5NDUwRkNBNTYyQjI3P2FjdGlv
+        c2lvbmlkPTQ0NUU3OTlGMjI2MEIzRUJENDM3OTJBRTlEM0Y0NUUxP2FjdGlv
         bj1henphIj5BYmVjZWRuw70gem96bmFtIG5hZMOhY2nDrSAtIGFrdHXDoWxu
         eTwvYT4NCiAgICANCiAgICAgIHwmbmJzcDs8YSBocmVmPSIvcmVnaXN0cmUv
-        em96bmFtcm5kLmRvO2pzZXNzaW9uaWQ9NUUxMUU5RURFRUVDRTQyM0M4Mjk0
-        NTBGQ0E1NjJCMjc/YWN0aW9uPWF6enUiPkFiZWNlZG7DvSB6b3puYW0gbmFk
+        em96bmFtcm5kLmRvO2pzZXNzaW9uaWQ9NDQ1RTc5OUYyMjYwQjNFQkQ0Mzc5
+        MkFFOUQzRjQ1RTE/YWN0aW9uPWF6enUiPkFiZWNlZG7DvSB6b3puYW0gbmFk
         w6FjacOtIC0gw7pwbG7DvTwvYT4NCiAgICANCiAgDQp8PC9kaXY+DQoNCg0K
         PHNwYW4gY2xhc3M9Im5hZHBpczMiPjxiPlZ5aMS+YWRhxaUgcG9kxL5hOjwv
         Yj48L3NwYW4+DQoNCiAgPHNwYW4gY2xhc3M9Im5hZHBpczMiPiZuYnNwOw0K
         ICAgIA0KICAgICAgfCZuYnNwOzxhIGhyZWY9Ii9yZWdpc3RyZS9obGFkYXRy
-        bmQuZG87anNlc3Npb25pZD01RTExRTlFREVFRUNFNDIzQzgyOTQ1MEZDQTU2
-        MkIyNz9hY3Rpb249c2hvdyZmb3JtdWxhcj1uYXpvdiI+TsOhenZ1PC9hPg0K
+        bmQuZG87anNlc3Npb25pZD00NDVFNzk5RjIyNjBCM0VCRDQzNzkyQUU5RDNG
+        NDVFMT9hY3Rpb249c2hvdyZmb3JtdWxhcj1uYXpvdiI+TsOhenZ1PC9hPg0K
         ICAgIA0KICAgICAgfCZuYnNwOzxhIGhyZWY9Ii9yZWdpc3RyZS9obGFkYXRy
-        bmQuZG87anNlc3Npb25pZD01RTExRTlFREVFRUNFNDIzQzgyOTQ1MEZDQTU2
-        MkIyNz9hY3Rpb249c2hvdyZmb3JtdWxhcj1zaWRsbyI+U8OtZGxhPC9hPg0K
+        bmQuZG87anNlc3Npb25pZD00NDVFNzk5RjIyNjBCM0VCRDQzNzkyQUU5RDNG
+        NDVFMT9hY3Rpb249c2hvdyZmb3JtdWxhcj1zaWRsbyI+U8OtZGxhPC9hPg0K
         ICAgIA0KICAgICAgfCZuYnNwOzxhIGhyZWY9Ii9yZWdpc3RyZS9obGFkYXRy
-        bmQuZG87anNlc3Npb25pZD01RTExRTlFREVFRUNFNDIzQzgyOTQ1MEZDQTU2
-        MkIyNz9hY3Rpb249c2hvdyZmb3JtdWxhcj1wcmF2b3MiPlByw6F2bmlja2Vq
+        bmQuZG87anNlc3Npb25pZD00NDVFNzk5RjIyNjBCM0VCRDQzNzkyQUU5RDNG
+        NDVFMT9hY3Rpb249c2hvdyZmb3JtdWxhcj1wcmF2b3MiPlByw6F2bmlja2Vq
         IG9zb2J5PC9hPg0KICAgIA0KICAgICAgfCZuYnNwOzxhIGhyZWY9Ii9yZWdp
-        c3RyZS9obGFkYXRybmQuZG87anNlc3Npb25pZD01RTExRTlFREVFRUNFNDIz
-        QzgyOTQ1MEZDQTU2MkIyNz9hY3Rpb249c2hvdyZmb3JtdWxhcj1meXpvcyI+
+        c3RyZS9obGFkYXRybmQuZG87anNlc3Npb25pZD00NDVFNzk5RjIyNjBCM0VC
+        RDQzNzkyQUU5RDNGNDVFMT9hY3Rpb249c2hvdyZmb3JtdWxhcj1meXpvcyI+
         Rnl6aWNrZWogb3NvYnk8L2E+DQogICAgDQogICAgICB8Jm5ic3A7PGEgaHJl
-        Zj0iL3JlZ2lzdHJlL2hsYWRhdHJuZC5kbztqc2Vzc2lvbmlkPTVFMTFFOUVE
-        RUVFQ0U0MjNDODI5NDUwRkNBNTYyQjI3P2FjdGlvbj1zaG93JmZvcm11bGFy
+        Zj0iL3JlZ2lzdHJlL2hsYWRhdHJuZC5kbztqc2Vzc2lvbmlkPTQ0NUU3OTlG
+        MjI2MEIzRUJENDM3OTJBRTlEM0Y0NUUxP2FjdGlvbj1zaG93JmZvcm11bGFy
         PWljbyI+ScSMTzwvYT4NCiAgICANCiAgICAgIHwmbmJzcDs8YSBocmVmPSIv
-        cmVnaXN0cmUvaGxhZGF0cm5kLmRvO2pzZXNzaW9uaWQ9NUUxMUU5RURFRUVD
-        RTQyM0M4Mjk0NTBGQ0E1NjJCMjc/YWN0aW9uPXNob3cmZm9ybXVsYXI9dWNl
+        cmVnaXN0cmUvaGxhZGF0cm5kLmRvO2pzZXNzaW9uaWQ9NDQ1RTc5OUYyMjYw
+        QjNFQkQ0Mzc5MkFFOUQzRjQ1RTE/YWN0aW9uPXNob3cmZm9ybXVsYXI9dWNl
         bCI+w5rEjWVsdTwvYT4NCiAgICANCiAgfDwvc3Bhbj4NCg0KDQoNCg0KICA8
         ZGl2IGNsYXNzPSJuYWRwaXMzIj4mbmJzcDsNCiAgICANCiAgICAgIHwmbmJz
         cDs8YSBocmVmPSIvcmVnaXN0cmUvb3JlZ2lzdHJpLmRvO2pzZXNzaW9uaWQ9
-        NUUxMUU5RURFRUVDRTQyM0M4Mjk0NTBGQ0E1NjJCMjc/cmVnaXN0ZXI9cm5k
+        NDQ1RTc5OUYyMjYwQjNFQkQ0Mzc5MkFFOUQzRjQ1RTE/cmVnaXN0ZXI9cm5k
         Ij5JbmZvcm3DoWNpZSBvIHJlZ2lzdHLDoWNpaTwvYT4NCiAgICANCiAgICAg
         IHwmbmJzcDs8YSBocmVmPSIvcmVnaXN0cmUvbmF2b2QuZG87anNlc3Npb25p
-        ZD01RTExRTlFREVFRUNFNDIzQzgyOTQ1MEZDQTU2MkIyNz9yZWdpc3Rlcj1y
+        ZD00NDVFNzk5RjIyNjBCM0VCRDQzNzkyQUU5RDNGNDVFMT9yZWdpc3Rlcj1y
         bmQiPk7DoXZvZCBuYSBwb3XFvsOtdmFuaWUgcmVnaXN0cmE8L2E+DQogICAg
         DQogIHw8L2Rpdj4NCg0KJm5ic3A7DQo8aHI+DQogDQoNCiAgICAgICZuYnNw
         Ow0KICAgICAgPGRpdiBjbGFzcz0iZGVmVGV4dENlbnRlciI+DQogICAgICB8
@@ -237,5 +237,5 @@ http_interactions:
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://www.ives.sk/registre/detailrnd.do?action=uplny&formular=&id=158264&locale=sk
-  recorded_at: Wed, 17 Jun 2015 13:46:46 GMT
+  recorded_at: Mon, 12 Oct 2015 13:46:54 GMT
 recorded_with: VCR 2.9.3

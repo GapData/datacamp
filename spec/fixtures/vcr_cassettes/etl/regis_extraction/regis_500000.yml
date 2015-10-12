@@ -15,7 +15,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Jun 2015 13:46:58 GMT
+      - Mon, 12 Oct 2015 13:47:00 GMT
       Server:
       - Oracle-Application-Server-10g/10.1.3.1.0 Oracle-HTTP-Server
       X-DB-Content-length:
@@ -107,13 +107,13 @@ http_interactions:
         Y2xhc3M9ImJ1dHRvbiI+CjxJTlBVVCBUWVBFPUJVVFRPTiBWQUxVRT0iVv1w
         aXMiIG9uQ2xpY2s9InByZXNtZXJ1aiggJy9wbHMvd3JlZ2lzL3Z5cGlzcmVn
         aXM/dnlwaXNfeGlkb3JnPTUwMDAwMCcpOyI+CjwvRk9STT4KPERJViBjbGFz
-        cz0icGF0aWNrYSI+CjxCUj4KVnl0dm9yZW5pZSBzdHLhbmt5OiAxNy4wNi4y
-        MDE1ICAxNTo0NiwgcGxhdG5vc50g+mRham92IGsgMTYuMDYuMjAxNQo8QlI+
+        cz0icGF0aWNrYSI+CjxCUj4KVnl0dm9yZW5pZSBzdHLhbmt5OiAxMi4xMC4y
+        MDE1ICAxNTo0NywgcGxhdG5vc50g+mRham92IGsgMjguMDguMjAxNQo8QlI+
         CiYjMTY5OyBBiklTLVJFR0lTIDIuMCAginRhdGlzdGlja/0g+nJhZCBTbG92
         ZW5za2VqIHJlcHVibGlreSwgMjAwNSAgICAgCjwvRElWPgo8L0JPRFk+Cjwv
         SFRNTD4K
     http_version: '1.1'
     adapter_metadata:
       effective_url: http://www.statistics.sk/pls/wregis/detail?wxidorg=500000
-  recorded_at: Wed, 17 Jun 2015 13:46:59 GMT
+  recorded_at: Mon, 12 Oct 2015 13:47:05 GMT
 recorded_with: VCR 2.9.3

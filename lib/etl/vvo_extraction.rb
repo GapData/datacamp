@@ -9,7 +9,7 @@ module Etl
     @@procurement_subject_word_length = 12
 
     def document_url(id)
-      "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/#{id}"
+      "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/#{id}"
     end
 
     def download(id)
