@@ -9,8 +9,7 @@ class SiteMapGenerator
 
   # first run generator
   def self.generate_all_files
-    Dir.rmdir(sitemaps_dir) if File.exists?(sitemaps_dir)
-    FileUtils.rm_rf Dir.glob("#{sitemaps_dir}/*") if File.exists?(sitemaps_dir)
+    FileUtils.rm_rf(sitemaps_dir) if File.exists?(sitemaps_dir)
     LOCALES.each_pair do |locale, locale_path|
       generator = Generator.new(locale, locale_path)
       generator.delay.generate
