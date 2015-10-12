@@ -23,7 +23,7 @@ describe Etl::VvoExtraction do
   end
   
   it 'should return a correctly formatted document url' do
-    @extractor.document_url(12345).should == "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/12345"
+    @extractor.document_url(12345).should == "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/12345"
   end
   
   it 'should return a configuration' do
