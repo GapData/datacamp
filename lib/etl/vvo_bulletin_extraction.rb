@@ -52,7 +52,7 @@ module Etl
         missed_documents = document_ids - existing_document_ids
         missed_documents.each do |document_id|
           # missed
-          update_report_object_depth_2(:download_procurement, :missed, document_id, "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}")
+          update_report_object_depth_2(:download_procurement, :missed, document_id, "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}")
           # run extractor
           Delayed::Job.enqueue Etl::VvoExtraction.new(nil, nil, document_id, true)
         end
@@ -85,7 +85,7 @@ module Etl
     end
 
     def self.all_bulletins_in_year(in_year)
-      document_url = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/all"
+      document_url = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/all"
       document = Nokogiri::HTML(Typhoeus::Request.get(document_url).body)
 
       links = []
@@ -100,7 +100,7 @@ module Etl
 
       # report
       if links.empty?
-        config.update_report!(:download_bulletins, "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/all")
+        config.update_report!(:download_bulletins, "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/all")
       end
 
       links

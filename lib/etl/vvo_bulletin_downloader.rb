@@ -69,7 +69,7 @@ module Etl
     MIN_SIZE = 1000.0
 
     def self.download_document(id)
-      url = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/#{id}"
+      url = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/#{id}"
 
       file_path = get_path("vvo/procurements/#{id}.html")
       return if File.exist?(file_path) && File.size(file_path) > MIN_SIZE
@@ -130,7 +130,7 @@ module Etl
     end
 
     def self.all_bulletins_in_year(in_year)
-      document_url = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/all"
+      document_url = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/all"
       document = Nokogiri::HTML(Typhoeus::Request.get(document_url).body)
 
       links = []

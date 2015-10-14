@@ -346,8 +346,8 @@ module Etl
       end
 
       if source_url
-        document_id = source_url.match(/http:\/\/www.uvo.gov.sk\/sk\/evestnik\/-\/vestnik\/(\d*)/u)[1].to_i
-        document_url = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}"
+        document_id = source_url.match(/http:\/\/www2.uvo.gov.sk\/sk\/evestnik\/-\/vestnik\/(\d*)/u)[1].to_i
+        document_url = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}"
 
         document = Nokogiri::HTML(Typhoeus::Request.get(document_url).body)
         header = document.xpath("//div[@class='oznamenie']")
@@ -371,7 +371,7 @@ module Etl
     end
 
     def self.all_bulletins
-      document_url = "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/all"
+      document_url = "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/all"
       document = Nokogiri::HTML(Typhoeus::Request.get(document_url).body)
 
       links = {}
