@@ -65,7 +65,7 @@ module Etl
           missed_documents = document_ids[dataset_type] - existing_document_ids
           missed_documents.each do |document_id|
             # missed
-            update_report_object_depth_2(EtlConfiguration::VVO_V2_KEYS_BY_TYPES[dataset_type], :missed, document_id, "http://www.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}") if report_extraction
+            update_report_object_depth_2(EtlConfiguration::VVO_V2_KEYS_BY_TYPES[dataset_type], :missed, document_id, "http://www2.uvo.gov.sk/sk/evestnik/-/vestnik/#{document_id}") if report_extraction
             # run extractor
             Delayed::Job.enqueue Etl::VvoExtractionV2.new(document_id, report_extraction)
           end
