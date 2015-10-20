@@ -41,7 +41,7 @@ module Etl
         # find dataset type by etl vvo extraction v2
         if dataset_type
           href = css_link.attributes['href'].text
-          document_id = href.match(/(\D*)(\/)(\d*)(\D*)/u)[3].to_i
+          document_id = href.match(/(.*)(\/)(\d*)(\D*)/u)[3].to_i
           document_ids[dataset_type] << document_id
         end
       end
