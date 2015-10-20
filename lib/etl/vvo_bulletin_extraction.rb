@@ -31,7 +31,7 @@ module Etl
         any_valid_link = true if valid_link
         if valid_link && valid_link[5].start_with?('V')
           href = css_link.attributes['href'].text
-          document_id = href.match(/(\D*)(\/)(\d*)(\D*)/u)[3].to_i
+          document_id = href.match(/(.*)(\/)(\d*)(\D*)/u)[3].to_i
           document_ids << document_id
         end
       end
