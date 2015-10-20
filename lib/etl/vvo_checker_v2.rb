@@ -131,7 +131,7 @@ module Etl
       document.css('#layout-column_column-2 .ozn1').each do |header|
         css_link = header.css("a").first
         href = css_link.attributes['href'].text
-        document_id = href.match(/(\D*)(\/)(\d*)(\D*)/u)[3].to_i
+        document_id = href.match(/(.*)(\/)(\d*)(\D*)/u)[3].to_i
         title = css_link.inner_text.match(/(\d*)(\ )(\-)(\ )(...)/u)
         bulletin_and_date = header.css(".datum").inner_text.match(/Zverejnené: (.*) vo VVO (.*)/u)
         date = Date.parse(bulletin_and_date[1]) rescue nil
