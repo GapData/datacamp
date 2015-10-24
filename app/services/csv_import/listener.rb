@@ -27,6 +27,10 @@ module CsvImport
       if record.persisted?
         @count += 1
         @saved_ids << record._record_id
+
+        if @index % 100 == 0
+          import_file.update_attributes(count_of_imported_lines: @count, unparsable_lines: @unparsable_lines)
+        end
       end
     end
 
