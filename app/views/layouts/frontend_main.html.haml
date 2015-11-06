@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ charset: 'utf-8' }
-    = render 'layouts/facebook_meta' if @dataset_description.present?
+    = render 'layouts/social_meta' if @dataset_description.present?
     = raw SystemVariable.get("meta_information")
     %title= page_title(@title)
     = csrf_meta_tag unless response.cache_control[:public]
