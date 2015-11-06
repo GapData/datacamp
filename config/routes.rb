@@ -14,10 +14,10 @@ Datacamp::Application.routes.draw do
   match '/signup' => 'sessions#new'
 
   match '/how-to' => 'main#howto', :as => :howto
-  match '/pages/api-access' => 'main#api_access'
-
 
   scope "(:locale)", :locale => /sk|en/ do
+
+    match '/pages/api-access' => 'main#api_access'
 
     resources :errors
 

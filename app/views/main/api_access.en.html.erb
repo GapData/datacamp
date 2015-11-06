@@ -1,0 +1,46 @@
+<% if current_user && current_user.api_key %>
+  <h1>API key</h1>
+  <%= current_user.api_key.key %>
+<% end %>
+
+
+<h1>API</h1>
+<div class="" id="page_content">
+  <h3>Working with Datanest API</h3>
+
+  <p>All registered users have their accounts activated for API usage. If you encounter the error message "access_denied", please report this to the site administrator at <a href="mailto:datanest@fair-play.sk">datanest@fair-play.sk</a>.</p>
+  <br>
+  <p>The API key is required for the usage of API. All registered users receive a unique API key. You can find it in “API” section.</p>
+
+  <br>
+  <p>To work with API, you will need an ID of the dataset, which you want to work with. Dataset ID is a unique number of the dataset. After opening a dataset, you’ll find it in the URL, for example / datasets/1, where 1 is the number of the dataset.</p>
+
+  <br>
+  <p>Find interface for API methods at: / api / [method]? Api_key = [Your Key] and other parameters.</p>
+
+  <br>
+  <p>For downloading the description of the dataset in XML format and other formats, use dataset_description method with parameter dataset_id. Example: /api/dataset_description?Api_key=123 & dataset_id=1</p>
+
+  <br>
+  <p>For downloading of the entire dataset, use method dataset_dump with parameter dataset_id. Example: /api/dataset_dump?Api_key=123&dataset_id=1</p>
+
+  <br>
+  <p>For downloading the record in XML format or other formats, use record method with parameter dataset_id and record_id. Example: /api/record.xml?api_key=123&dataset_id=1&record_id=1</p>
+
+  <br>
+  <p>Functionality for manual access to data</p>
+
+  <br>
+
+  <p>- Download dataset (CSV) - downloads the content of the dataset in CSV format<br></p>
+  <br>
+  <p>- Download relations data (XML) - downloads the list of relations in the dataset in XML format<br></p>
+  <br>
+  <p>- Download changes only (XML) – downloads the list of changes in the dataset in XML format<br></p>
+  <br>
+  <p>- Download the dataset description (XML) - downloads information about the dataset and the table
+    structure in XML format<br></p>
+
+  <br>
+  <p>Manual access to data is available both for registered and non-registered users.</p>
+</div>
