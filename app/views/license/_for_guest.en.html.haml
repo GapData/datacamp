@@ -1,5 +1,47 @@
 %iframe{name: 'google_forms_iframe', style: 'display: none'}
 
 #pop-up-window{style: 'display: none'}
-  %h1
-    Todo
+  %form{action: 'https://docs.google.com/forms/d/1VgIGmCwW0h3QWa0g6WHDCo5NN15fwXqEyopNYhzL3h0/formResponse', target: 'google_forms_iframe'}
+    .wrap
+      %a.abort{href: '#', data: {show_license_abort: true}}
+      %h1 You are about to download dataset
+      %h1.dataset-name{'data-license-var-dataset': ''}
+      %p Dataset will be downloaded in <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">CSV format</a>, you can open it, for example, using MS Excel.
+      %p
+        When using the data, please mind the
+        =link_to 'License Terms', page_path('copyright')
+        and the
+        =link_to 'Terms of Service', page_path('terms_of_service')
+      %p
+        You may download the data, edit them and use them further commercially
+        or non-commercially. However, please, always quote the source -
+        Fair-Play Alliance Datanest - and let us know if the data were useful
+        to you or how you used them at <a href="mailto:datanest@fair-play.sk">datanest@fair-play.sk</a>.
+    .wrap-supplement
+      %p Since you are not logged on to Datanest, we would like to ask you for
+      basic information about you. Providing this information is optional, but
+      it will help us to improve the site in the future.
+      .left
+        %label{for: 'entry.435374113'}
+        %input{type: :text, class: :text, name: 'entry.435374113', placeholder: 'Email address'}
+      .left
+        %label{for: 'entry.1009556207'}
+        %select{name: 'entry.1009556207'}
+          %option I work as
+          %option Analyst
+          %option Journalist
+          %option Designer
+          %option Programmer
+          %option Entrepreneur
+          %option Student
+          %option Manager in commercial sphere
+          %option Manager in Nnon-commercial sphere
+          %option Government official
+          %option Politician
+          %option Police officer
+          %option Marketer
+          %option Auditor
+          %option Economist
+          %option Other
+    .wrap-send
+      %input.button-send{type: :submit, value: 'OK', 'data-license-accept': ''}

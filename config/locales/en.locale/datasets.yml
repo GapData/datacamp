@@ -3,8 +3,8 @@ en:
     search_status:
       sphinx_single_negative_search: "The search cannot be performed since it contains only 'does not contain' specifications. Please add at least one non-'does not contain' specification."
       active_search:
-        one: "Results are currently filtered by an active search with %{count} condition."
-        other: "Results are currently filtered by an active search with %{count} conditions."
+        one: "Search results are currently filtered by one condition. Edit search."
+        other: "Search results are currently filtered by %{count} conditions. Edit search."
 
 
   dataset:

@@ -1,4 +1,21 @@
 #pop-up-window{style: 'display: none'}
   .wrap
-    %h1
-      TODO
+    %a.abort{href: '#', data: {show_license_abort: true}}
+    %h1 You are about to download dataset
+    %h1.dataset-name{'data-license-var-dataset': ''}
+    %p Dataset will be downloaded in <a href="https://en.wikipedia.org/wiki/Comma-separated_values" target="_blank">CSV format</a>, you can open it, for example, using MS Excel.
+    %p
+      When using the data, please mind the
+      =link_to 'License Terms', page_path('copyright')
+      and the
+      =link_to 'Terms of Service', page_path('terms_of_service')
+    %p
+      You may download the data, edit them and use them further commercially
+      or non-commercially. However, please, always quote the source -
+      Fair-Play Alliance Datanest - and let us know if the data were useful
+      to you or how you used them at <a href="mailto:datanest@fair-play.sk">datanest@fair-play.sk</a>.
+  .wrap-send
+    %a.button-send{href: '#', 'data-license-var-url': '', 'data-license-accept': ''}
+      OK
+  .wrap-nodisplay
+    %input{type: :checkbox, 'data-license-dont-show-again': ''} Do not show this window again

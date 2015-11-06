@@ -6,7 +6,7 @@ en:
       active: active
       add_to_favorites_hint: Is this page interesting?
       add_to_favorites: Add to favorites
-      simple_search: Simple search
+      simple_search: Search
       advanced_search: Advanced search
       all: "- All -"
       back: Back
@@ -35,6 +35,7 @@ en:
       email_sent: Email was sent.
       empty: empty
       favorites: Favorites
+      favorite: Add to favorites
       field: Field
       home: Home
       import: Import
@@ -94,8 +95,11 @@ en:
       copyright_html: "2009&ndash;2015 &copy; Fair-Play Alliance"
       concept_author_html: 'Project concept author: <a href="http://www.fair-play.sk/abouts/bios/8">Peter Kunder</a>'
       report_error: "Report error"
-      favorites: "Favorite"
       share: "Share"
       home: Home
 
-  search_help_html: TODO
+  search_help_html: |
+    <h3>Searching on Datanest</h3>
+    <p>On Datanest, you can search for businesses, people, titles of orders, subsidised projects and various other items related to the use of public money.</p>
+    <p>In addition to basic search, you can use advanced search, which allows filtering with several criteria simultaneously. Filtering works much like in Excel - you can filter by entering the name of the dataset and by adding a filter through "Advanced Search".</p>
+    <p>Try searching for: <a href="/searches/quick?query_string=Siemens">Siemens</a>, <a href="/searches/quick?query_string=Granvia">Granvia</a>, <a href="/searches/quick?query_string=Skytoll">Skytoll</a></p>

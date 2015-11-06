@@ -66,18 +66,18 @@ en:
     datasets:
       index:
         show_bad_quality: 'All datasets'
-        show_good_quality: 'Good quality datasets'
+        show_good_quality: 'Quality datasets'
         bad_quality: 'Bad quality'
-        good_quality_true: 'Good quality dataset'
+        good_quality_true: 'Quality dataset'
         good_quality_false: 'Bad quality dataset'
       similar_datasets:
         header: 'Similar datasets'
       show:
-        more_information: More information
-        less_information: Less information
-        last_update: 'Last Update:'
-        published_count: 'Published records:'
-        data_provider: 'Provider:'
+        more_information: Show more
+        less_information: Show less
+        last_update: 'Last updated:'
+        published_count: 'Number of published records:'
+        data_provider: 'Data provider:'
     favorites: 
         confirm_deletion: Are you sure you want to remove this favorite?
         remove: (remove)
@@ -186,13 +186,13 @@ en:
         processing: "Processing your search"
         results: "%{results} results"
         more_results: More results
-        no_results: We are sorry, there are no results for your current search query. Please try to reformulate your query query.
+        no_results: We are sorry, no results containing this term were found. Try to rephrase or enter another term.
         any_field: Any field
         any_dataset: Any dataset
         enter_query: Enter query
         showing_first_results:
-            one: Showing %{count} record of %{all_count} in total.
-            other: Showing %{count} records of %{all_count} in total.
+            one: Showing 1 out of %{all_count} results.
+            other: Showing %{count} out of %{all_count} results.
         header: 'Advanced search'
         help: Help text here
         add_filter: + Add filter
