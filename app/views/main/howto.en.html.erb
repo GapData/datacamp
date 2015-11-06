@@ -1,0 +1,50 @@
+<ul id="navigation-breadcrumb">
+  <li class="first"><%= link_to t('global.home'), root_path %></li>
+  <li><%= link_to t('pages.how_to'), url_for %></li>
+</ul>
+
+<h1>Datanest How To</h1>
+
+<div id="how-to-use">
+  <p>Datanest contains a variety of (mostly financial) information on the functioning of Slovakia: information about who gets subsidies and what they amount to, what companies are winning government contracts, who we elect as our representatives in politics etc. We are collecting these information in an effort to create easily searchable archive capturing how Slovakia manages public finances.</p>
+
+  <div id="box-container-how-to-use">
+
+    <div class="box principles">
+      <h2>When using Datanest, we recommend paying attention to some basic principles</h2>
+    </div>
+    <div class="box one">
+      <h3>Using Datanest effectively</h3>
+      <p>Use full text search. Feel free to use operators and filters in advanced search. These are similar to those you know from MS Excel. <a href="#" onclick="$('#searchline-container .info').click();">How does advanced search work?</a></p>
+      <p>You do not have to work with datasets directly on the page. If you would prefer to analyze them in a table editor or in another application, you can easily download them in CSV format (can be opened in Excel or other table editors). Datasets available for download can be found in the Data Catalogue section and are marked with a “down” arrow. Download them by clicking on the arrow or on the "Download dataset" button displayed in dataset details.</p>
+      Programmers can download data automatically through a simple API by way of an API key which is assigned to each registered user.
+    </div>
+
+    <div class="box two">
+      <h3>Watch out for updates!</h3>
+      Most of the data are entered manually with semi-annual or annual periodicity. Although we always try to have the latest data, sometimes we are overloaded with work, or we do not have all needed information from the authorities - thus updates may take longer to prepare and some datasets are not always up to date. Observe the “Last updated” date in description of datasets and individual records!
+    </div>
+    <div class="box three">
+      <h3>Data errors</h3>
+      We can guarantee the accuracy of the information only to the extent to which the state guarantees it. If ministries or authorities publish incorrect information, we may not be able to identify the mistakes  and may publish them without corrections. Therefore, consider Datanest to be an indicative source and <span class="important">always verify the information!</span> If you find an error, please let us know by clicking the "Report an error" button.
+    </div>
+    <div class="box four">
+      <h3>Licenses</h3>
+      We provide all data on Datanest for further re-use under a so-called public license - that means, in principle, free-of-charge usage for any purpose, if you follow three basic conditions: citation of authorship of Fair-Play Alliance, usage of data in accordance with the <%= link_to 'project mission', page_path('about_service'), target: '_blank' %> and licensing of the final product in the same fashion. Read more about licensing on the <%= link_to 'copyright page', page_path('copyright'), target: '_blank' %>.
+    </div>
+    <div class="box five">
+      <h3>What is Datanest good for?</h3>
+      <p>We use data from Datanest for preparation of analytical and investigative materials, such as:</p>
+      <p>Story on how <a href="https://dennikn.sk/blog/sirokemu-sa-uz-rozpada-aj-plastika-nestacila-ani-pomoc-od-statu/" target="_blank">one of Slovakia’s best known oligarchs’ company Plastika received subsidies</a> despite poor economic performance.</p>
+      <p>Blog about how <a href="http://fairplay.blog.sme.sk/c/368963/o-peniazoch-pre-obce-rozhoduju-aj-stranicke-knizky.html" target="_blank">money distribution for municipalities is influenced by party membership.</a> In this blog we have connected data on subsidies with data on office terms of mayors and their party affiliations.</p>
+      Blog about the success of companies of well-known Skolak oligarchs <a href="http://fairplay.blog.sme.sk/c/362438/ako-sa-darilo-sirokeho-firmam-v-tendroch-za-fica-a-radicovej.html" target="_blank">Široký</a> and <a href="http://fairplay.blog.sme.sk/c/364635/ako-sa-darilo-poorovym-firmam-v-tendroch-za-fica-a-radicovej.html" traget="_blank">Poór</a> in winning government tenders. We compared data on public procurement with the office terms of the last governments.
+    </div>
+    <div class="box six">
+      <h3>More information</h3>
+      <p>For more information about the mission of Datanest, read the <%= link_to 'About Service', page_path('about_service'), target: '_blank' %> section.</p>
+      <p>For more information on the terms of Datanest read the <%= link_to 'Terms Of Use', page_path('terms_of_service'), target: '_blank' %> section.</p>
+      <h3>Related Projects</h3>
+      See also our other websites <a href="http://www.znasichdani.sk/" target="_blank">ZNašichDaní.sk</a> (From Our Taxes) and <a href="http://www.otvorenezmluvy.sk/" target="_blank">OtvorenéZmluvy.sk</a> (Open Contracts).
+    </div>
+  </div>
+</div>
