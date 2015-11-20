@@ -9,7 +9,7 @@ defaults: &defaults
   adapter: mysql2
   timeout: 5000
   encoding: utf8
-  pool: 5
+  pool: 25
   username: <%= ENV['DATANEST_MYSQL_USER'] %>
   password: <%= ENV['DATANEST_MYSQL_PASSWORD'] %>
   host: <%= ENV['DATANEST_MYSQL_HOST'] %>
