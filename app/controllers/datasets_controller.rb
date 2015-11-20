@@ -93,8 +93,8 @@ class DatasetsController < ApplicationController
       paginate_options[:conditions].merge!({:record_status => "#{Dataset::RecordStatus.find(:published)}|#{Dataset::RecordStatus.find(:morphed)}"}) unless current_user && current_user.has_privilege?(:power_user)
       # raise select_options.to_yaml
     end
+    sort_direction = sanitize_sort_direction(params[:dir])
     if params[:search_id].blank?
-      sort_direction = sanitize_sort_direction(params[:dir])
       if params[:sort] && params[:page]
         # This ugly thing is here because mysql is lame and doesn't use indexes when there is just an order and a limit on the select (pagination with ordering)...
         total_entries = @dataset_class.count
