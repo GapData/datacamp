@@ -237,7 +237,7 @@ en:
     will_paginate:
       page_gap: "&hellip;"
       page_entries_info:
-        multi_page_html: "%{from_with_delimiter}&nbsp;&ndash;&nbsp;%{to_with_delimiter} of %{count_with_delimiter}"
+        multi_page_html: "of %{total_pages} (%{count_with_delimiter} records)"
         single_page_html:
           zero:  "No results found"
           one:   "1 result"

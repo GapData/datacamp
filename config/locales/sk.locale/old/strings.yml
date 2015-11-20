@@ -252,7 +252,7 @@ sk:
   will_paginate:
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page_html: "%{from_with_delimiter}&nbsp;&ndash;&nbsp;%{to_with_delimiter} z %{count_with_delimiter}"
+      multi_page_html: "z %{total_pages} (%{count_with_delimiter} záznamov)"
       single_page_html:
         zero:  "Bez výsledkov"
         one:   "1 výsledok"

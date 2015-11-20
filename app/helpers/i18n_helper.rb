@@ -68,7 +68,8 @@ module I18nHelper
         :count_with_delimiter => number_with_delimiter(collection.total_entries, :delimiter => ' '),
         :from_with_delimiter => number_with_delimiter(collection.offset + 1, :delimiter => ' '),
         :to_with_delimiter => number_with_delimiter(collection.offset + collection.length, :delimiter => ' '),
-        :from => collection.offset + 1, :to => collection.offset + collection.length
+        :from => collection.offset + 1, :to => collection.offset + collection.length,
+        :total_pages => collection.total_pages
       }
       will_paginate_translate keys, params do |_, opts|
         %{Displaying %s #{b}%d#{sp}-#{sp}%d#{eb} of #{b}%d#{eb} in total} %
