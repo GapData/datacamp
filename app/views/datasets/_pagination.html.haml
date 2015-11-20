@@ -9,6 +9,8 @@
       = hidden_field_tag :redirect, request.url
 
     %form.submit_on_change
+      - params.except(:action, :controller, :id, :page).each do |param, value|
+        %input{type: :hidden, name: param, value: value}
       %label{for: :page}= t("global.jump_to")
       %input.pagination-text{name: :page, value: params[:page] || 1}
 
@@ -16,6 +18,8 @@
       = will_paginate @records, :previous_label => '', :next_label => '', container: false, page_links: false
   - else
     %form.submit_on_change
+      - params.except(:action, :controller, :id, :page).each do |param, value|
+        %input{type: :hidden, name: param, value: value}
       %label{for: :recors_per_page}= t ("global.records_per_page")
       = select_tag :records_per_page, options_for_select(RECORDS_PER_PAGE_OPTIONS, params[:records_per_page] || RECORDS_PER_PAGE)
 
