@@ -93,8 +93,8 @@ class DatasetsController < ApplicationController
       paginate_options[:conditions].merge!({:record_status => "#{Dataset::RecordStatus.find(:published)}|#{Dataset::RecordStatus.find(:morphed)}"}) unless current_user && current_user.has_privilege?(:power_user)
       # raise select_options.to_yaml
     end
-    sort_direction = sanitize_sort_direction(params[:dir])
     if params[:search_id].blank?
+      sort_direction = sanitize_sort_direction(params[:dir])
       if params[:sort] && params[:page]
         # This ugly thing is here because mysql is lame and doesn't use indexes when there is just an order and a limit on the select (pagination with ordering)...
         total_entries = @dataset_class.count
@@ -161,6 +161,7 @@ class DatasetsController < ApplicationController
   end
 
   def show_search_results_for_dataset(paginate_options, sphinx_search)
+    paginate_options[:order] = "#{paginate_options[:order]} #{paginate_options[:sort_mode]}"
     sphinx_search = {options: paginate_options, query: sphinx_search}
     @search = Search.find(params[:search_id])
     sphinx_search = @dataset_description.build_sphinx_search(@search, sphinx_search) # TODO: move to SearchEngine
