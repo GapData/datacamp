@@ -11,7 +11,6 @@ module Dataset
     def build
       unless model_defined?
         define_model_class
-        set_up_connection
         set_up_model
       end
 
