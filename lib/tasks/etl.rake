@@ -181,15 +181,68 @@ namespace :etl do
 
   # Regis
 
-  task :regis_extraction => :environment do
-    config = EtlConfiguration.find_by_name('regis_extraction')
-    end_id = config.start_id + config.batch_limit
-    (config.start_id..end_id).each do |id|
-      Delayed::Job.enqueue Etl::RegisExtraction.new(config.start_id, config.batch_limit, id)
-    end
+  # run once
+  task :regis_analyse_missing => :environment do
+    f = File.open('data/regis_ids.txt')
+    content = f.read
+    f.close
+    all_organization_ids = content.gsub("\"", "")[1..-2].split(",").map(&:to_i).sort
+    actual_organization_ids = Staging::StaRegisMain.select(:doc_id).map(&:doc_id).map(&:to_i).sort
+    missing_ids = all_organization_ids - actual_organization_ids
+    puts "All: #{all_organization_ids.count}"
+    puts "Actual: #{actual_organization_ids.count}"
+    puts "Missing: #{missing_ids.count}"
+    f = File.open('data/regis_missing_ids.txt', "w+")
+    f.write missing_ids.inspect
+    f.close
   end
 
+  task :regis_download_missing => :environment do
+    f = File.open('data/regis_missing_ids.txt')
+    content = f.read
+    f.close
+    missing_ids = content[1..-2].split(",").map(&:to_i).sort
+    puts "Missing: #{missing_ids.count}"
+    downloader = Etl::RegisDownloader.new
+    downloader.download_organisations_by_ids missing_ids
+  end
 
+  # every day
+  task :regis_extraction => :environment do
+    downloader = Etl::RegisDownloader.new
+    downloader.download_new_organisations
+    Etl::RegisExtraction.update_last_run_time
+  end
+
+  # every month, send email
+  task :regis_checker => :environment do
+    downloader = Etl::RegisDownloader.new
+    missed_ids = downloader.download_organisations_from_pages
+    report = {missed: downloader.get_url_for_ids(missed_ids), total: Staging::StaRegisMain.count}
+    EtlMailer.regis_status(report).deliver
+    Etl::RegisExtraction.update_last_run_time
+  end
+
+  # only once
+  task :regis_update_all_source_urls => :environment do
+    puts "Start update source url"
+    downloader = Etl::RegisDownloader.new
+    downloader.update_all_source_urls
+  end
+
+  # every day batch limit is 10000
+  task :regis_update => :environment do
+    config = EtlConfiguration.find_by_name('regis_update')
+    from_document_id = config.start_id
+    to_document_id = from_document_id + config.batch_limit
+    puts "Start update from #{from_document_id} to #{to_document_id}"
+    downloader = Etl::RegisDownloader.new
+    downloader.update_organisations_by_ids(from_document_id, to_document_id)
+    Etl::RegisUpdate.update_start_id(to_document_id)
+    Etl::RegisUpdate.update_last_run_time
+  end
+
+  # every day
   task :regis_loading => :environment do
     source_table = 'sta_regis_main'
     dataset_table = 'ds_organisations'
@@ -202,11 +255,11 @@ namespace :etl do
     Dataset::TmpOrganisation.table_name = dataset_table
 
     append_new_records = "INSERT INTO #{dataset_schema}.#{dataset_table}
-                         (doc_id, ico, name, legal_form, legal_form_code, date_start, date_end, address, region, activity1, activity1_code, activity2, activity2_code, account_sector, account_sector_code, ownership, ownership_code, size, size_code, source_url, created_at, updated_at, created_by, record_status, name_history)
+                         (doc_id, ico, name, legal_form, legal_form_code, date_start, date_end, address, region, place, activity1, activity1_code, activity2, activity2_code, account_sector, account_sector_code, ownership, ownership_code, size, size_code, source_url, created_at, updated_at, created_by, record_status, name_history)
                          SELECT doc_id, ico, name,
                                  lf.text legal_form, legal_form legal_form_code,
                                  m.date_start, m.date_end,
-                                 address, region,
+                                 address, region, place,
                                  a1.text activity1, activity1 activity1_code,
                                  a2.text activity2, activity2 activity2_code,
                                  acc.text account_sector, account_sector account_sector_code,
@@ -225,11 +278,11 @@ namespace :etl do
     Staging::StagingRecord.connection.execute(append_new_records)
     Staging::StaRegisMain.update_all ['etl_loaded_date = ?', Time.now], ['etl_loaded_date IS NULL']
 
-    modified_records = Staging::StaRegisMain.select("doc_id, ico, name, lf.text legal_form, legal_form legal_form_code,
-                                          m.date_start, m.date_end, address, region, a1.text activity1, activity1 activity1_code,
-                                          a2.text activity2, activity2 activity2_code, acc.text account_sector,
-                                          account_sector account_sector_code, os.text ownership, ownership ownership_code,
-                                          s.text size, size size_code, source_url, etl_loaded_date, name_history").
+    modified_records = Staging::StaRegisMain.select("doc_id, ico, name, lf.text legal_form_text, legal_form legal_form_code,
+                                          m.date_start, m.date_end, address, region, place, a1.text activity1_text, activity1 activity1_code,
+                                          a2.text activity2_text, activity2 activity2_code, acc.text account_sector_text,
+                                          account_sector account_sector_code, os.text ownership_text, ownership ownership_code,
+                                          s.text size_text, size size_code, source_url, etl_loaded_date, name_history").
         from("#{staging_schema}.#{source_table} as m").
         joins("LEFT JOIN #{staging_schema}.sta_regis_legal_form lf ON lf.id = m.legal_form").
         joins("LEFT JOIN #{staging_schema}.sta_regis_activity1 a1 ON a1.id = m.activity1").
@@ -239,27 +292,32 @@ namespace :etl do
         joins("LEFT JOIN #{staging_schema}.sta_regis_size s ON s.id = m.size").
         where('m.updated_at > m.etl_loaded_date')
 
-    modified_records.each do |r|
-      record_to_update = Dataset::TmpOrganisation.find_by_doc_id(r.doc_id)
-      Staging::StaRegisMain.find_by_doc_id(r.doc_id).update_attribute(:etl_loaded_date, Time.now) if record_to_update.update_attributes(
-          :ico => r.ico, :name => r.name, :legal_form => r.legal_form, :legal_form_code => r.legal_form_code,
-          :date_start => r.date_start, :date_end => r.date_end, :address => r.address, :region => r.region, :activity1 => r.activity1,
-          :activity1_code => r.activity1_code, :activity2 => r.activity2, :activity2_code => r.activity2_code,
-          :account_sector => r.account_sector, :account_sector_code => r.account_sector_code, :ownership => r.ownership,
-          :ownership_code => r.ownership_code, :size => r.size, :size_code => r.size_code, name_history: r.name_history)
+    modified_doc_ids = modified_records.map(&:doc_id)
+
+    puts "Modified ids: #{modified_doc_ids.count}"
+
+    # cache all modified organisations
+    all_organisations = Dataset::TmpOrganisation.where(doc_id: modified_doc_ids)
+    organisations = {}
+    all_organisations.each do |organisation|
+      organisations[organisation.doc_id] = organisation
     end
+
+    modified_records.each do |r|
+      record_to_update = organisations[r.doc_id]
+      record_to_update.update_attributes(
+          :ico => r.ico, :name => r.name, :legal_form => r.legal_form_text, :legal_form_code => r.legal_form_code,
+          :date_start => r.date_start, :date_end => r.date_end, :address => r.address, :region => r.region, :place => r.place, :activity1 => r.activity1_text,
+          :activity1_code => r.activity1_code, :activity2 => r.activity2_text, :activity2_code => r.activity2_code,
+          :account_sector => r.account_sector_text, :account_sector_code => r.account_sector_code, :ownership => r.ownership_text,
+          :ownership_code => r.ownership_code, :size => r.size_text, :size_code => r.size_code, name_history: r.name_history,
+          :source_url => r.source_url)
+    end
+
+    Staging::StaRegisMain.update_all ['etl_loaded_date = ?', Time.now], ['updated_at > etl_loaded_date']
 
     DatasetDescription.find_by_identifier('organisations').update_attribute(:data_updated_at, Time.zone.now)
   end
-
-  task :regis_update => :environment do
-    config = EtlConfiguration.find_by_name('regis_update')
-    end_id = config.start_id + config.batch_limit
-    (config.start_id..end_id).each do |id|
-      Delayed::Job.enqueue Etl::RegisUpdate.new(config.start_id, config.batch_limit, id)
-    end
-  end
-
 
   # Otvorene zmluvy
 

@@ -27,9 +27,17 @@ end
 # Regis, vvo
 
 every 1.day, :at => '2:30 am' do
-  rake "etl:regis_loading"
   rake "etl:vvo_loading"
 end
+
+every 1.day, :at => '3:30 am' do
+  rake "etl:regis_loading"
+end
+
+every 1.month, :at => 'January 2th 2:00 am' do
+  rake 'etl:regis_checker'
+end
+
 
 # Vvo check - extract bulletins in current year
 every 1.month, :at => 'January 1th 2:00 am' do
