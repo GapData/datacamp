@@ -230,6 +230,15 @@ namespace :etl do
     downloader.update_all_source_urls
   end
 
+  # update all missing codes
+  task :regis_update_all_missing_codes => :environment do
+    ['legal_form', 'activity1', 'activity2', 'account_sector', 'ownership', 'size'].each do |code_name|
+      res = Staging::StaRegisMain.connection.execute("SELECT * FROM sta_regis_#{code_name}")
+      puts "#{code_name}: #{res.count}"
+      res.each { |r| Data::DsOrganisation.where("#{code_name} = '0' AND #{code_name}_code = #{r[0]}").update_all ["#{code_name} = ?", r[1].strip] }
+    end
+  end
+
   # every day batch limit is 10000
   task :regis_update => :environment do
     config = EtlConfiguration.find_by_name('regis_update')

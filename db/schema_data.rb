@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160112211517) do
+ActiveRecord::Schema.define(:version => 20160113135206) do
 
   create_table "dc_relations", :primary_key => "_record_id", :force => true do |t|
     t.integer "relatable_left_id"
@@ -326,17 +326,23 @@ ActiveRecord::Schema.define(:version => 20160112211517) do
   end
 
   add_index "ds_organisations", ["account_sector"], :name => "account_sector_index"
+  add_index "ds_organisations", ["account_sector"], :name => "index_ds_organisations_on_account_sector"
   add_index "ds_organisations", ["activity1"], :name => "activity1_index"
+  add_index "ds_organisations", ["activity1_code"], :name => "index_ds_organisations_on_activity1_code"
   add_index "ds_organisations", ["activity2"], :name => "activity2_index"
+  add_index "ds_organisations", ["activity2_code"], :name => "index_ds_organisations_on_activity2_code"
   add_index "ds_organisations", ["address"], :name => "address_index"
   add_index "ds_organisations", ["date_end"], :name => "date_end_index"
   add_index "ds_organisations", ["date_start"], :name => "date_start_index"
   add_index "ds_organisations", ["doc_id"], :name => "index_ds_organisations_on_doc_id"
   add_index "ds_organisations", ["ico"], :name => "ico_index"
   add_index "ds_organisations", ["legal_form"], :name => "legal_form_index"
+  add_index "ds_organisations", ["legal_form_code"], :name => "index_ds_organisations_on_legal_form_code"
   add_index "ds_organisations", ["name"], :name => "name_index"
+  add_index "ds_organisations", ["ownership"], :name => "index_ds_organisations_on_ownership"
   add_index "ds_organisations", ["ownership"], :name => "ownership_index"
   add_index "ds_organisations", ["region"], :name => "region_index"
+  add_index "ds_organisations", ["size"], :name => "index_ds_organisations_on_size"
   add_index "ds_organisations", ["size"], :name => "size_index"
 
   create_table "ds_otvorenezmluvy", :primary_key => "_record_id", :force => true do |t|
