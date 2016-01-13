@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117174618) do
+ActiveRecord::Schema.define(:version => 20160112211552) do
 
   create_table "sta_advokats", :force => true do |t|
     t.string   "name"
@@ -176,13 +176,15 @@ ActiveRecord::Schema.define(:version => 20131117174618) do
     t.integer  "account_sector"
     t.integer  "ownership"
     t.integer  "size"
-    t.string   "source_url"
+    t.text     "source_url"
     t.datetime "date_created"
     t.datetime "etl_loaded_date"
     t.datetime "updated_at"
     t.text     "name_history"
+    t.string   "place"
   end
 
+  add_index "sta_regis_main", ["doc_id"], :name => "index_sta_regis_main_on_doc_id"
   add_index "sta_regis_main", ["ico"], :name => "index2"
 
   create_table "sta_regis_ownership", :id => false, :force => true do |t|

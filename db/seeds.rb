@@ -18,6 +18,8 @@ EtlConfiguration.find_or_create_by_name('otvorenezmluvy_extraction', start_id: 2
 EtlConfiguration.find_or_create_by_name('foundation_extraction')
 EtlConfiguration.find_or_create_by_name('mzvsr_contracts_extraction')
 EtlConfiguration.find_or_create_by_name('vvo_extraction_v2', last_processed_id: 0)
+EtlConfiguration.find_or_create_by_name('regis_extraction')
+EtlConfiguration.find_or_create_by_name('regis_update')
 
 # Initialize datasets and relations
 

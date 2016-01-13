@@ -17,6 +17,11 @@ class EtlMailer < ActionMailer::Base
     mail(:to => Datacamp::Application.config.admin_emails, :subject => "VVO V2 bulettin report.")
   end
 
+  def regis_status(report)
+    @report = report
+    mail(:to => Datacamp::Application.config.admin_emails, :subject => "Regis report.")
+  end
+
   def vvo_v2_checker_report(diffs)
     @diffs = diffs
     mail(:to => Datacamp::Application.config.admin_emails, :subject => "VVO V2 kontrola.")

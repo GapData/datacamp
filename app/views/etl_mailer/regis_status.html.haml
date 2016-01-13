@@ -1,0 +1,18 @@
+- content_for :email_preview do
+  = "Regis download bol dokonceny."
+
+%h4= 'Regis download report'
+
+%p= "Ahoj,"
+%p= "dnes prebehla kontrola, ci mame stiahnute vsetky data do datasetu Registru organizacii. Zistila nasledovne:"
+%ol
+  %li
+    = "Kontrola presla vsetky organizacie a zistila, ze chybalo #{@report[:missed].count} zaznamov."
+
+    - if @report[:missed].any?
+      = "#{@report[:missed].count} bolo uspesne doplnenych na Datanest ("
+      - @report[:missed].each_pair do |document_id, url|
+        = link_to document_id, url, target: '_blank'
+      = ")."
+  %li
+    = "Aktualne mame v Registri organizacii #{@report[:total]} zaznamov"
