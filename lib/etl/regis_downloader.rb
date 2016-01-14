@@ -33,7 +33,7 @@ module Etl
 
     # update all organisations in ids
     def update_organisations_by_ids(from_document_id, to_document_id)
-      Staging::StaRegisMain.where("doc_id >= ? AND doc_id < ?", from_document_id, to_document_id).select([:doc_id, :source_url]).find_each do |organisation|
+      Staging::StaRegisMain.where("doc_id >= ? AND doc_id < ?", from_document_id, to_document_id).select([:id, :doc_id, :source_url]).find_each do |organisation|
         html = go_to_organisation_by_url(organisation.source_url)
         extraction = Etl::RegisUpdate.new(html, organisation.doc_id, organisation.source_url)
         extraction.perform
