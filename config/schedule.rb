@@ -20,8 +20,11 @@ end
 
 every 1.day, :at => '1:30 am' do
   rake "etl:regis_extraction"
-  rake "etl:regis_update"
   rake "etl:vvo_extraction"
+end
+
+every 1.day, :at => '2:00 pm' do
+  rake "etl:regis_update"
 end
 
 # Regis, vvo
