@@ -165,10 +165,10 @@ module Etl
                                           end
                     supplier[:is_price_part_of_range] = false
                   else
-                    if price_detail.next_sibling.next_sibling.xpath(".//span").inner_text.match(/(predpokladaná celková hodnota zákazky)|konečná/)
+                    if price_detail.try(:next_sibling).try(:next_sibling) && price_detail.next_sibling.next_sibling.xpath(".//span").inner_text.match(/(predpokladaná celková hodnota zákazky)|konečná/)
                       price_detail = price_detail.next_sibling.next_sibling
                     end
-                    if price_detail.next_sibling.next_sibling.next_sibling.xpath(".//span").inner_text.match(/(predpokladaná celková hodnota zákazky)|konečná/)
+                    if price_detail.try(:next_sibling).try(:next_sibling).try(:next_sibling) && price_detail.next_sibling.next_sibling.next_sibling.xpath(".//span").inner_text.match(/(predpokladaná celková hodnota zákazky)|konečná/)
                       price_detail = price_detail.next_sibling.next_sibling.next_sibling
                     end
                     while price_detail && price_detail.xpath(".//span").inner_text.match(/(predpokladaná celková hodnota zákazky)|konečná/) do
