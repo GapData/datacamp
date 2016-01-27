@@ -95,6 +95,7 @@ staging:
 production:
   <<: *common
   mysql41: 9313
+  configuration_file: /home/datanest2/deploy/shared/db/sphinx/production.sphinx.conf
 
 test:
   <<: *common
