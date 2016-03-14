@@ -15,10 +15,20 @@ module Etl
       config.update_attribute(:last_run_time, Time.now)
     end
 
+    # for 1 .. 1500000 => batch limit: 100000
+    # for 13000000 .. MAX => batch limit: 500000
+
     def self.update_start_id(start_id)
-      last_doc_id = Staging::StaRegisMain.order(:doc_id).last.doc_id
-      start_id = 1 if start_id > last_doc_id
-      config.start_id = start_id
+      last_doc_id = 15000000 # Staging::StaRegisMain.order(:doc_id).last.doc_id
+      if start_id >= 1500000 && start_id <= 13000000
+        config.batch_limit = 500000
+        config.start_id = 13000000
+      elsif start_id > 13000000 && start_id > last_doc_id
+        config.batch_limit = 100000
+        config.start_id = 1
+      else
+        config.start_id = start_id
+      end
       config.save
     end
 

@@ -90,7 +90,7 @@ sk:
     users: Používatelia
     value: Hodnota
     parsers: 'Parsery'
-    copyright_html: "2009&ndash;2015 &copy; Aliancia Fair-Play"
+    copyright_html: '2009&ndash;2016 &copy; <a href="http://fair-play.sk" target="_blank">Aliancia Fair-Play</a>'
     concept_author_html: 'Autor konceptu projektu: <a href="http://www.fair-play.sk/abouts/bios/8">Peter Kunder</a>'
     report_error: "Upozorniť admina na chybu"
     favorite: "Obľúbené"
